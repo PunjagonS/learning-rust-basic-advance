@@ -1,0 +1,91 @@
+[package]
+name = "basic-advance"
+version = "0.1.0"
+edition = "2021"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rayon = "1.5.1"
+
+
+[[bin]]
+name = "var"
+path = "src/bin/quickstart/var.rs"
+
+[[bin]]
+name = "primitive"
+path = "src/bin/quickstart/primitive.rs"
+
+[[bin]]
+name = "compound"
+path = "src/bin/quickstart/compound.rs"
+
+[[bin]]
+name = "function"
+path = "src/bin/quickstart/function.rs"
+
+[[bin]]
+name = "conditionals"
+path = "src/bin/quickstart/conditionals.rs"
+
+[[bin]]
+name = "controlflow"
+path = "src/bin/quickstart/controlflow.rs"
+
+[[bin]]
+name = "extra"
+path = "src/bin/quickstart/extra.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "ownership_basic"
+path = "src/bin/ownership/basic.rs"
+
+[[bin]]
+name = "own_function"
+path = "src/bin/ownership/own_function.rs"
+
+[[bin]]
+name = "borrowing"
+path = "src/bin/ownership/borrowing.rs"
+
+[[bin]]
+name = "bor_function"
+path = "src/bin/ownership/bor_function.rs"
+
+[[bin]]
+name = "dereferencing"
+path = "src/bin/ownership/dereferencing.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "types_basic"
+path = "src/bin/types/basic.rs"
+
+[[bin]]
+name = "types_functionality"
+path = "src/bin/types/functionality.rs"
+
+[[bin]]
+name = "enums"
+path = "src/bin/types/enums.rs"
+
+[[bin]]
+name = "option"
+path = "src/bin/types/option.rs"
+
+[[bin]]
+name = "result"
+path = "src/bin/types/result.rs"
+
+[[bin]]
+name = "hashmaps"
+path = "src/bin/types/hashmaps.rs"
