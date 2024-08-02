@@ -89,3 +89,11 @@ path = "src/bin/types/result.rs"
 [[bin]]
 name = "hashmaps"
 path = "src/bin/types/hashmaps.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "module"
+path = "src/bin/organization/module.rs"
