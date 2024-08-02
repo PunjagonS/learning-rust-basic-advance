@@ -23,6 +23,12 @@ impl Product {
 
 struct Customer {
     id: u64,
+    name: String,
+    email: String,
+}
+
+struct Order {
+    id: u64,
     product: Product,
     customer: Customer,
     quantity: u32,
