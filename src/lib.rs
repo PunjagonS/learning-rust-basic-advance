@@ -1,13 +1,13 @@
 mod product{
-    struct Product {
+    pub struct Product {
         id: u64,
         name: String,
         price: f64,
-        category: Category,
+        category: category::Category,           // no need "crate" keyword for reference struct from another module
     }
     
     mod category{
-        enum Category {
+        pub enum Category {
             Electronics,
             Clothing,
             Books,
@@ -19,14 +19,14 @@ mod product{
             self.price * 0.1
         }
 
-        fn product_price(&self) -> f64 {
+        pub fn product_price(&self) -> f64 {
             self.price + self.calculate_tax()
         }
     }
 }
 
 mod customer{
-    struct Customer {
+    pub struct Customer {
         id: u64,
         name: String,
         email: String,
@@ -36,8 +36,8 @@ mod customer{
 mod order {
     struct Order {
         id: u64,
-        product: Product,
-        customer: Customer,
+        product: crate::product::Product,               // "crate" keyword needed for reference struct from another module
+        customer: crate::customer::Customer,            // "crate" keyword needed for reference struct from another module
         quantity: u32,
     }
     
