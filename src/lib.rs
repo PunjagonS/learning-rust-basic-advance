@@ -1,9 +1,12 @@
 mod product{
+    use category::Category;                       // "use" declaration bringing item into scope
+
     pub struct Product {
         id: u64,
         name: String,
         price: f64,
-        category: category::Category,           // no need "crate" keyword for reference struct from another module
+        //category: category::Category,           // no need "crate" keyword for reference struct from another module
+        category: Category,           
     }
     
     mod category{
@@ -34,10 +37,15 @@ mod customer{
 }
 
 mod order {
+    use crate::product::Product;                            // "use" declaration bringing item into scope
+    use crate::customer::Customer;                          // "use" declaration bringing item into scope
+
     struct Order {
         id: u64,
-        product: crate::product::Product,               // "crate" keyword needed for reference struct from another module
-        customer: crate::customer::Customer,            // "crate" keyword needed for reference struct from another module
+        // product: crate::product::Product,               // "crate" keyword needed for reference struct from another module
+        // customer: crate::customer::Customer,            // "crate" keyword needed for reference struct from another module
+        product: Product,
+        customer: Customer,
         quantity: u32,
     }
     
