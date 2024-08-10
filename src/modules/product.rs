@@ -1,5 +1,6 @@
 pub use category::Category;                       // "use" declaration bringing item into scope
 
+/// Struct for storing product related information.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Product {
     id: u64,
@@ -32,6 +33,7 @@ impl Product {
 }
 
 mod category{
+    /// Enum for representing the product categories.
     #[derive(Debug, Clone, PartialEq)]
     pub enum Category {
         Electronics,
