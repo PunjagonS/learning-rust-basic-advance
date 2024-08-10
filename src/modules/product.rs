@@ -1,6 +1,6 @@
 pub use category::Category;                       // "use" declaration bringing item into scope
 
-#[derive(Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Product {
     id: u64,
     name: String,
@@ -32,7 +32,7 @@ impl Product {
 }
 
 mod category{
-    #[derive(Clone)]
+    #[derive(Debug, Clone, PartialEq)]
     pub enum Category {
         Electronics,
         Clothing,
