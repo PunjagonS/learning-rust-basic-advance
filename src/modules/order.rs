@@ -1,5 +1,5 @@
-use crate::modules::product::Product;                            // "use" declaration bringing item into scope
-use crate::modules::customer::Customer;                          // "use" declaration bringing item into scope
+use super::product::Product;                            // "super" declaration to ref modules root folder
+use super::customer::Customer;                          // "super" declaration to ref modules root folder
 
 struct Order {
     id: u64,
