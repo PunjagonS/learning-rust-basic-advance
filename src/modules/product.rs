@@ -4,7 +4,7 @@ pub use category::Category;                       // "use" declaration bringing 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Product {
     id: u64,
-    name: String,
+    pub name: String,
     price: f64,
     //category: category::Category,           // no need "crate" keyword for reference struct from another module
     category: Category,  
@@ -18,6 +18,13 @@ pub struct Product {
     Implement fuction for new instance of struct instead of make fields public
  */
 impl Product {
+    /// # Example
+    /// ```
+    /// use basic_advance::modules::Product;
+    /// use basic_advance::modules::Category;
+    /// let some_product = Product::new(1, "Laptop".to_string(), 799.99, Category::Electronics);
+    /// assert_eq!(some_product.name, "Laptop".to_string());
+    /// ```
     pub fn new(id: u64, name: String, price: f64, category: Category) -> Product {
         Product {
             // id: id,
