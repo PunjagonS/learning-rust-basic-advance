@@ -4,10 +4,13 @@
 mod customer;
 mod product;
 mod order;
+mod shapes;
+mod testing;
 
 /*
     Exposing only Customer and Product structs visible from outside
  */
 pub use customer::Customer;             
 pub use product::{Product, Category};   
-pub use order::Order;            
+pub use order::Order;
+pub use shapes::Circle;
