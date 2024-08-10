@@ -17,9 +17,9 @@ struct Student2 {
 }
 
 fn get_grade(student_name: &String, student_db: &Vec<Student2>) -> Option<u32> {
-    for Student in student_db {
-        if Student.name == *student_name {
-            return Student.grade;
+    for student in student_db {
+        if student.name == *student_name {
+            return student.grade;
         }
     }
     None
