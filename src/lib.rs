@@ -79,4 +79,7 @@
 //     }
 // }
 
+//! # Online Bussiness
+//! This is a rust library for online store
+
 pub mod modules;
