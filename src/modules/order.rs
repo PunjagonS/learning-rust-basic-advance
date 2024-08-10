@@ -1,5 +1,5 @@
-use super::product::{self, Product};                            // "super" declaration to ref modules root folder
-use super::customer::{self, Customer};                          // "super" declaration to ref modules root folder
+use super::product::Product;                            // "super" declaration to refer parent module
+use super::customer::Customer;                          // "super" declaration to refer parent module
 
 pub struct Order {
     id: u64,
