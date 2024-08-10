@@ -79,7 +79,6 @@
 //     }
 // }
 
-//! # Online Bussiness
-//! This is a rust library for online store
-
+//! # Learning Rust Basic to Advance
+//! This is for study purpose only
 pub mod modules;
