@@ -1,5 +1,5 @@
-use super::product::Product;                            // "super" declaration to refer parent module
-use super::customer::Customer;                          // "super" declaration to refer parent module
+use super::Product;                             // "super" declaration to refer parent module
+use super::Customer;                            // "super" declaration to refer parent module
 
 pub struct Order {
     id: u64,
