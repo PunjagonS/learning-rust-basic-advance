@@ -5,7 +5,7 @@
 
     2 Methods available
     - Make the new file with the same name as that of the module and include the content of the module there.
-    - 
+    - Make seperate folders for each of modules, and then have a special file inside each folder as "mod.rs".
 */
 
 
@@ -79,6 +79,4 @@
 //     }
 // }
 
-mod product;
-mod customer;
-mod order;
+mod modules;

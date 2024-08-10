@@ -8,15 +8,13 @@ use category::Category;                       // "use" declaration bringing item
         category: Category,           
     }
     
-    // mod category{
-    //     pub enum Category {
-    //         Electronics,
-    //         Clothing,
-    //         Books,
-    //     }
-    // }
-
-    mod category;
+    mod category{
+        pub enum Category {
+            Electronics,
+            Clothing,
+            Books,
+        }
+    }
 
     impl Product {
         fn calculate_tax(&self) -> f64 {

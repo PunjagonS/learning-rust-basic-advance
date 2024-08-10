@@ -1,5 +1,5 @@
-use crate::product::Product;                            // "use" declaration bringing item into scope
-use crate::customer::Customer;                          // "use" declaration bringing item into scope
+use crate::modules::product::Product;                            // "use" declaration bringing item into scope
+use crate::modules::customer::Customer;                          // "use" declaration bringing item into scope
 
 struct Order {
     id: u64,
