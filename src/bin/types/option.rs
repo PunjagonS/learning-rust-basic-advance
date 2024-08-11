@@ -2,8 +2,6 @@
 //          Option
 // --------------------------------------------
 
-use rayon::vec;
-
 #[derive(Debug)]
 struct Student {
     name: String,

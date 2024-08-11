@@ -4,8 +4,6 @@
 
 use std::f32::consts::E;
 
-use rayon::vec;
-
 #[derive(Debug)]
 struct Student2 {
     name: String,

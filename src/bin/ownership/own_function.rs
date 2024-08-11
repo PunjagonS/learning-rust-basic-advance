@@ -2,8 +2,6 @@
 //          Ownership Functions
 // --------------------------------------------
 
-use rayon::vec;
-
 fn main() {
     let vec_1 = vec![1, 2, 3, 4, 5];
     takes_ownership(vec_1);
