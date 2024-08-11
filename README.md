@@ -46,9 +46,14 @@ Description: Runs all tests including unit tests, integration tests, and documen
    cargo test --lib should_not
    cargo test --lib -- --ignored
 
-3. **Command to Run Integration Tests:**
+3. **Command to Run Integration Test:**
 
    ```bash
    cargo test --test order_test
 
 Description: Runs a specific integration test file named order_test.rs.
+
+4. **Command to Run Benchmark Test:**
+
+   ```bash
+   cargo bench
