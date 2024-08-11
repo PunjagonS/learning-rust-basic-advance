@@ -41,4 +41,10 @@ mod tests {
     fn should_not_creat_and_panic() {
         Circle::new_2(-11.0);
     }
+
+    #[test]
+    #[ignore = "required long hours"]
+    fn huge_test() {
+        // code that run for hours
+    }
 }
