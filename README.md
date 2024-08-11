@@ -23,7 +23,6 @@ To better understand the structure of your Rust code, you can visualize the modu
    ```bash
    cargo install cargo-modules
 
-
 2. **Generate and view the module structure:**
 
    ```bash
