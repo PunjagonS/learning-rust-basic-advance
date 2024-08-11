@@ -1,3 +1,11 @@
+// --------------------------------------------
+//          Integration Testing
+// --------------------------------------------
+/*  
+    Create folder "tests" at root package follow rust typical file system
+    to let cargo know to look for integration tests inside this directory.
+ */
+
 use basic_advance::modules::{Customer, Product, Order, Category};
 
 #[test]
