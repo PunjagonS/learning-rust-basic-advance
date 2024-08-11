@@ -30,8 +30,15 @@ mod tests {
      */
     #[test]
     fn should_not_create_circle() -> Result<(), String> {
-        Circle::new_1(0.01)?;                                                               // "?" shorthand to return Err if new_1() is error
+    Circle::new_1(0.01)?;                                                               // "?" shorthand to return Err if new_1() is error
         // Circle::new_1(-0.1)?;                                                                                                            
         Ok(())
+    }
+
+    #[test]
+    #[should_panic(expected = "is less than -10.0")]                                            // Expect panic with exact error string 
+    // #[should_panic]
+    fn should_not_creat_and_panic() {
+        Circle::new_2(-11.0);
     }
 }
