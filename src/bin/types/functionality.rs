@@ -2,6 +2,10 @@
 //          Structs and its Functionlity
 // --------------------------------------------
 
+/*
+    Implementing Block is the function which are tie to any structs.
+*/
+
 struct Car {
     owner: String,
     year: u32,
