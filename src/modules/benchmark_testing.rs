@@ -2,6 +2,11 @@
 //          Benchmark Testing
 // --------------------------------------------
 
+/*
+    - Define 2 free functions
+
+    "Free Function" is the function not tie to any struct
+*/
 pub fn sorting_algo_1<T: PartialOrd>(arr: &mut Vec<T>) {
     let mut swapped = false;
     for i in 0..(arr.len() - 1) {
