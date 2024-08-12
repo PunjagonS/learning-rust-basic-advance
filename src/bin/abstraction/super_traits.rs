@@ -77,7 +77,7 @@ impl Draw for Square {
     }
 }
 
-fn ShapeProperties<T>(object: T) 
+fn shape_properties<T>(object: T) 
 where 
     //T: Shape + OtherTrait + SomeOtherTrait,                         // Reduce this long list trait bounds by super traits
     T: Shape
@@ -87,7 +87,7 @@ where
 }
 
 // This fn can return anything that implement from Shape
-fn ReturnShape() -> impl Shape {
+fn return_shape() -> impl Shape {
     let sq = Square {
         side: 5.0,
         line_width: 5,
@@ -118,7 +118,7 @@ fn main() {
         radius: 5.0
     };
 
-    ShapeProperties(r1);
-    ShapeProperties(s1);
-    // ShapeProperties(c1);             // Error cause from Circle not bound to Shape
+    shape_properties(r1);
+    shape_properties(s1);
+    // shape_properties(c1);             // Error cause from Circle not bound to Shape
 }
