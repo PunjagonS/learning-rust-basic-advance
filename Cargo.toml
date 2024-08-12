@@ -122,3 +122,7 @@ path = "src/bin/abstraction/trait_bounds.rs"
 [[bin]]
 name = "super_traits"
 path = "src/bin/abstraction/super_traits.rs"
+
+[[bin]]
+name = "trait_objects"
+path = "src/bin/abstraction/trait_objects.rs"
