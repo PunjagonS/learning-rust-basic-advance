@@ -114,3 +114,7 @@ path = "src/bin/abstraction/generics.rs"
 [[bin]]
 name = "traits"
 path = "src/bin/abstraction/traits.rs"
+
+[[bin]]
+name = "trait_bounds"
+path = "src/bin/abstraction/trait_bounds.rs"
