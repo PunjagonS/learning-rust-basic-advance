@@ -110,3 +110,7 @@ path = "src/bin/organization/module.rs"
 [[bin]]
 name = "generics"
 path = "src/bin/abstraction/generics.rs"
+
+[[bin]]
+name = "traits"
+path = "src/bin/abstraction/traits.rs"
