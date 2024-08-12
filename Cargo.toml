@@ -102,3 +102,11 @@ path = "src/bin/types/hashmaps.rs"
 [[bin]]
 name = "module"
 path = "src/bin/organization/module.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "generics"
+path = "src/bin/abstraction/generics.rs"
