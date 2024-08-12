@@ -2,8 +2,12 @@
 //          Integration Testing
 // --------------------------------------------
 /*  
-    Create folder "tests" at root package follow rust typical file system
-    to let cargo know to look for integration tests inside this directory.
+    - Create folder "tests" at root package follow rust typical file system
+      to let cargo know to look for integration tests inside this directory.
+
+    - Note that integration tests cannot import items from the binary crate directly
+      cause of "COMMON PATTERN IN RUST IS TO HAVE A SMALL BINARY CRATE(less code as possible)
+      AND PUSH MAJORITY OF THE CODE INTO THE LIBRARY CRATE"
  */
 
 use basic_advance::modules::{Customer, Product, Order, Category};
