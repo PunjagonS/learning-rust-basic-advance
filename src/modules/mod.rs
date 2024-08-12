@@ -6,6 +6,7 @@ mod product;
 mod order;
 mod shapes;
 mod units_testing;
+pub mod benchmark_testing;
 
 /*
     Exposing only Customer and Product structs visible from outside
