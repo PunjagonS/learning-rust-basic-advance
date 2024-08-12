@@ -7,7 +7,7 @@
     like Inheritance && Polymorphism from OOP but ONLY functionality can be share. 
 */
 
-struct drawing_info {
+struct DrawingInfo {
     line_width: u8,
     color: String,
 }
@@ -16,7 +16,7 @@ struct Square {
     side: f32,
     // line_width: u8,
     // color: String,
-    info: drawing_info,
+    info: DrawingInfo,
 }
 
 struct Rectangle {
@@ -24,7 +24,7 @@ struct Rectangle {
     width: f32,
     // line_width: u8,
     // color: String,
-    info: drawing_info,
+    info: DrawingInfo,
 }
 
 /* 
@@ -82,14 +82,14 @@ fn main() {
         length: 4.0,
         // line_width: 1,
         // color: "Red".to_string(),
-        info: drawing_info{ line_width: 1, color: "Red".to_string() }
+        info: DrawingInfo{ line_width: 1, color: "Red".to_string() }
     };
 
     let s1 = Square {
         side: 3.2,
         // line_width: 1,
         // color: "Red".to_string(),
-        info: drawing_info{ line_width: 1, color: "Red".to_string() }
+        info: DrawingInfo{ line_width: 1, color: "Red".to_string() }
     };
 
     r1.area();
