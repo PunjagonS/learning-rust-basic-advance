@@ -158,3 +158,7 @@ path = "src/bin/functional/intoiterator.rs"
 [[bin]]
 name = "iterating_collections"
 path = "src/bin/functional/iterating_collections.rs"
+
+[[bin]]
+name = "combinators"
+path = "src/bin/functional/combinators.rs"
