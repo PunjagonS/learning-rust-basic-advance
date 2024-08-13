@@ -134,3 +134,11 @@ path = "src/bin/abstraction/derived_marker_traits.rs"
 [[bin]]
 name = "associated_types"
 path = "src/bin/abstraction/associated_types.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "closures"
+path = "src/bin/functional/closures.rs"
