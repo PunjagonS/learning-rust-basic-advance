@@ -162,3 +162,7 @@ path = "src/bin/functional/iterating_collections.rs"
 [[bin]]
 name = "combinators"
 path = "src/bin/functional/combinators.rs"
+
+[[bin]]
+name = "iterating_options"
+path = "src/bin/functional/iterating_options.rs"
