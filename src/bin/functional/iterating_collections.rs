@@ -2,10 +2,6 @@
 //          Iterating Through Collections
 // --------------------------------------------
 
-/*
-
-*/
-
 use std::collections::HashMap;
 
 fn main() {
