@@ -23,6 +23,10 @@ where
     simple_validator(name) && advance_validator(age)
 }
 
+fn validate_user_simple(name: &str) -> bool {
+    name.len() != 0
+}
+
 fn main() {
     let person_1 = User {
         name: "Someone".to_string(),
@@ -30,7 +34,7 @@ fn main() {
         salary: 40_000,
     };
 
-    let validate_user_simple = |name: &str| name.len() != 0;
+    // let validate_user_simple = |name: &str| name.len() != 0;
     let validate_user_advance = |age: u8| age >= 30;
     
     println!("User valididy {}", is_valid_user(
