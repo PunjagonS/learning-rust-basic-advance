@@ -150,3 +150,7 @@ path = "src/bin/functional/pointers.rs"
 [[bin]]
 name = "iterator"
 path = "src/bin/functional/iterator.rs"
+
+[[bin]]
+name = "intoiterator"
+path = "src/bin/functional/intoiterator.rs"
