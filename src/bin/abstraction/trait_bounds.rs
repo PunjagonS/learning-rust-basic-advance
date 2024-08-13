@@ -63,8 +63,8 @@ fn ShapeProperties3<T: Shape + Shape2>(object: T) {}
 // Syntax 4(Most popular) -> use "where" for trait bounds. valid both single and multiple or more complex.
 fn ShapeProperties4<T, U>(object: T, object2: U) 
 where 
-    T: Shape + Shape2, 
-    U: Shape2, 
+    T: Shape + Shape2,                                  // Multiple trait bounds.
+    U: Shape2,                                          // Single trait bounds.
 {}
 
 fn shape_properties<T>(object: T) where T: Shape,
