@@ -146,3 +146,7 @@ path = "src/bin/functional/closures.rs"
 [[bin]]
 name = "pointers"
 path = "src/bin/functional/pointers.rs"
+
+[[bin]]
+name = "iterator"
+path = "src/bin/functional/iterator.rs"
