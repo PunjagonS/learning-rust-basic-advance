@@ -13,35 +13,40 @@
 //     fn into_iter(self) -> Self::IntoIterator;
 // }
 
+use std::vec::IntoIter;
+
 struct Book {
     title: String,
     author: String,
     genre: String,
 }
 
-struct BookIterator {
-    properties: Vec<String>,
-}
+// struct BookIterator {
+//     properties: Vec<String>,
+// }
 
-impl Iterator for BookIterator {
-    type Item = String;
-    fn next(&mut self) -> Option<Self::Item> {
-        if !self.properties.is_empty() {
-            Some(self.properties.remove(0))
-        } else {
-            None
-        }
-    }
-}
+// impl Iterator for BookIterator {
+//     type Item = String;
+//     fn next(&mut self) -> Option<Self::Item> {
+//         if !self.properties.is_empty() {
+//             Some(self.properties.remove(0))
+//         } else {
+//             None
+//         }
+//     }
+// }
 
 impl IntoIterator for Book {
     type Item = String;
-    type IntoIter = BookIterator;
+    // type IntoIter = BookIterator;
+    type IntoIter = IntoIter<Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
-        BookIterator {
-            properties: vec![self.title, self.author, self.genre]
-        }
+        // BookIterator {
+        //     properties: vec![self.title, self.author, self.genre]
+        // }
+
+        vec![self.title, self.author, self.genre].into_iter()
     }
 }
 
