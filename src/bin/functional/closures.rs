@@ -13,9 +13,9 @@ struct User {
     salary: u32,
 }
 
-fn validate_user(name: &str) -> bool {
-    name.len() != 0
-}
+// fn validate_user(name: &str) -> bool {
+//     name.len() != 0
+// }
 
 fn main() {
     let person_1 = User {
@@ -23,6 +23,12 @@ fn main() {
         age: 35,
         salary: 40_000,
     };
+
+    /*
+        The input to Closures is mentioned inside Vertical Pipes(|..|).
+        Closures body({}) will contain the same code as that of the function.
+    */
+    let validate_user = |name: &str| { name.len() != 0 };
 
     println!("User valididy {}", validate_user(&person_1.name));
 }
