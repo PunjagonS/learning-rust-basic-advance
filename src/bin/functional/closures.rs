@@ -3,9 +3,10 @@
 // --------------------------------------------
 
 /*
-    Closure are anonymous functions which we can store in
+    Closures are anonymous functions which we can store in
     variables or pass as an argruments to other functions.
 
+    Closures will capture variables in thier environment as below.
     " Fn(&T) -> U " is the signature of the closures(immutable borrow).
     " FnMut(&T) -> U " is the signature of the closures(mutable borrow).
     " FnOnce(&T) -> U " is the signature of the closures(transfer ownership).
