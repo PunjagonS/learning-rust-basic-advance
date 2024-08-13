@@ -10,6 +10,10 @@
 
     Associated Types within trait are declared using the syntax of type,
     followed by the name of the associated type.
+
+    * We will use the Associated Types when there is only a single implement
+    of the trait per type. If there are multiple implementation of the same type
+    for a given trait, then we will use generics. *
 */
 
 #[derive(Debug)]
@@ -68,6 +72,41 @@ impl DistanceThreeHours for Mph {
     fn distance_in_three_hours(&self) -> Self::Distance {
         Self::Distance {
             value: self.value * 3,
+        }
+    }
+}
+
+/*
+    Example apply Generics with Associate Types 
+    to allow us implement multiple times.
+*/
+
+trait Addition<T> {
+    type Output;
+    fn add(self, rhs: T) -> Self::Output;
+}
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl Addition<Point> for Point {
+    type Output = Point;
+    fn add(self, rhs: Point) -> Self::Output {
+        Point {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+}
+
+impl Addition<i32> for Point {
+    type Output = Point;
+    fn add(self, rhs: i32) -> Self::Output {
+        Point {
+            x: self.x + rhs,
+            y: self.y + rhs,
         }
     }
 }
