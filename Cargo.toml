@@ -166,3 +166,11 @@ path = "src/bin/functional/combinators.rs"
 [[bin]]
 name = "iterating_options"
 path = "src/bin/functional/iterating_options.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "concrete_lifetimes"
+path = "src/bin/memory/concrete_lifetimes.rs"
