@@ -51,7 +51,7 @@ fn return_str_2<'a>(s_1: &'a str) -> &str {
     2. If there is exactly one input lifetime parameter, 
         that lifetime is assigned to all output lifetime parameters.
 
-    This can be ultimately resolved to the original form by the compiler.
+    This is the ultimately resolved form by the compiler.
 */
 fn return_str_3<'a>(s_1: &'a str) -> &'a str {
     s_1
