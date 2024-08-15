@@ -14,6 +14,7 @@ harness = false                                 # disable the default benchmarki
 
 [dependencies]
 array_tool = "1.0.3"
+rand = "0.8.5"
 
 [[bin]]
 name = "var"
@@ -174,3 +175,7 @@ path = "src/bin/functional/iterating_options.rs"
 [[bin]]
 name = "concrete_lifetimes"
 path = "src/bin/memory/concrete_lifetimes.rs"
+
+[[bin]]
+name = "generic_lifetimes"
+path = "src/bin/memory/generic_lifetimes.rs"
