@@ -39,7 +39,7 @@ fn return_str(s_1: &str) -> &str {
 }
 
 /*
-    Actual code compiler analyzing apply 1st rule.
+    Actual code compiler resolved form apply 1st rule.
     1. Each parameter that is reference, gets its own lifetime parameter.
 */
 fn return_str_2<'a>(s_1: &'a str) -> &str {
@@ -47,11 +47,9 @@ fn return_str_2<'a>(s_1: &'a str) -> &str {
 }
 
 /*
-    Actual code compiler analyzing apply 2nd rule.
+    Actual code compiler resolved form apply 2nd rule.
     2. If there is exactly one input lifetime parameter, 
         that lifetime is assigned to all output lifetime parameters.
-
-    This is the ultimately resolved form by the compiler.
 */
 fn return_str_3<'a>(s_1: &'a str) -> &'a str {
     s_1
@@ -59,7 +57,7 @@ fn return_str_3<'a>(s_1: &'a str) -> &'a str {
 
 
 /*
-    Case: multiple input parameters. Applying rule 3.
+    Case: multiple input parameters. Actual code compiler resolved form apply 3rd rule..
     3. If there are multiple input lifetime parameters, but one of them is 
         '&self' or '&mut' self, the lifetime of self is assigned to all 
         output lifetime parameters.
