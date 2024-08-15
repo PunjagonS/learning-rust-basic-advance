@@ -187,3 +187,7 @@ path = "src/bin/memory/lifetime_elision.rs"
 [[bin]]
 name = "lifetimes_in_structs"
 path = "src/bin/memory/lifetimes_in_structs.rs"
+
+[[bin]]
+name = "box_smart_pointer"
+path = "src/bin/memory/box_smart_pointer.rs"
