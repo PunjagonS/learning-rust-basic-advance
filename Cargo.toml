@@ -179,3 +179,7 @@ path = "src/bin/memory/concrete_lifetimes.rs"
 [[bin]]
 name = "generic_lifetimes"
 path = "src/bin/memory/generic_lifetimes.rs"
+
+[[bin]]
+name = "lifetime_elision"
+path = "src/bin/memory/lifetime_elision.rs"
