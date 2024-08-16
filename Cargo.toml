@@ -195,3 +195,7 @@ path = "src/bin/memory/box_smart_pointer.rs"
 [[bin]]
 name = "rc_smart_pointer"
 path = "src/bin/memory/rc_smart_pointer.rs"
+
+[[bin]]
+name = "refcell_smart_pointer"
+path = "src/bin/memory/refcell_smart_pointer.rs"
