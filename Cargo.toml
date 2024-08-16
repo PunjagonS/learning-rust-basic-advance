@@ -191,3 +191,7 @@ path = "src/bin/memory/lifetimes_in_structs.rs"
 [[bin]]
 name = "box_smart_pointer"
 path = "src/bin/memory/box_smart_pointer.rs"
+
+[[bin]]
+name = "rc_smart_pointer"
+path = "src/bin/memory/rc_smart_pointer.rs"
