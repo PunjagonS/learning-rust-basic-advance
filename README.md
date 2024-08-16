@@ -14,6 +14,10 @@ Learning Rust from basic to advance
 - Section 5 -> Types && Function
 - Section 6 -> Organizing Code
 - Section 7 -> Testing Code
+- Section 8 -> Flexibility and Abstraction with Generics and Traits
+- Section 9 -> Functional Programming Aspects
+- Section 10 -> Memory Management Features
+- Section 11 -> Implementing Typical Data Structures
 
 ### Module Tree Structure
 
