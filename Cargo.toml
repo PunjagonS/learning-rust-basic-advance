@@ -203,3 +203,11 @@ path = "src/bin/memory/refcell_smart_pointer.rs"
 [[bin]]
 name = "refcell_example"
 path = "src/bin/memory/refcell_example.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "link_list_part1"
+path = "src/bin/data_structure/link_list_part1.rs"
