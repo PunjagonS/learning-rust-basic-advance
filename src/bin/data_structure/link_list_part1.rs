@@ -73,6 +73,6 @@ fn main() {
 
     println!("{:?}", &list6.head);
 
-    // .unwrap() is needed for 'Option<Box<Node>>' type.
+    // .unwrap() is needed for 'Option<>' type.
     println!("{:?}", &list6.head.unwrap().next.unwrap().element);
 }
