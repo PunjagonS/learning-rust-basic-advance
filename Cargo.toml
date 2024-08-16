@@ -211,3 +211,7 @@ path = "src/bin/memory/refcell_example.rs"
 [[bin]]
 name = "link_list_part1"
 path = "src/bin/data_structure/link_list_part1.rs"
+
+[[bin]]
+name = "link_list_part2"
+path = "src/bin/data_structure/link_list_part2.rs"
