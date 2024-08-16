@@ -1,5 +1,5 @@
 // --------------------------------------------
-//          Doubly Linked List (Part 1)
+//          Doubly Linked List
 // --------------------------------------------
 
 use std::{cell::RefCell, rc::Rc};

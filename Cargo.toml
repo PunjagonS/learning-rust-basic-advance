@@ -217,5 +217,5 @@ name = "linked_list_part2"
 path = "src/bin/data_structure/linked_list_part2.rs"
 
 [[bin]]
-name = "doubly_linked_list_part1"
-path = "src/bin/data_structure/doubly_linked_list_part1.rs"
+name = "doubly_linked_list"
+path = "src/bin/data_structure/doubly_linked_list.rs"
