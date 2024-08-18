@@ -6,12 +6,16 @@ mod product;
 mod order;
 mod shapes;
 mod units_testing;
-pub mod benchmark_testing;
+pub mod benchmark_testing;              // Exposing entire benchmark_testing module
+
+mod student;
 
 /*
-    Exposing only Customer and Product structs visible from outside
+    Exposing only Structs visible from outside
  */
 pub use customer::Customer;             
 pub use product::{Product, Category};   
 pub use order::Order;
 pub use shapes::Circle;
+
+pub use student::Student;

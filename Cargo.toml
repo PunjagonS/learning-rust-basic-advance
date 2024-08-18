@@ -223,3 +223,11 @@ path = "src/bin/data_structure/doubly_linked_list.rs"
 [[bin]]
 name = "reference_circles"
 path = "src/bin/data_structure/reference_circles.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "init_struct"
+path = "src/bin/design_patterns/init_struct.rs"
