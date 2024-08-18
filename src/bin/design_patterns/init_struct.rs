@@ -1,5 +1,5 @@
 // --------------------------------------------
-//          Inittializing Struct Instance
+//        Inittializing Struct Instance
 // --------------------------------------------
 
 use basic_advance::modules::Student;
