@@ -235,3 +235,7 @@ path = "src/bin/design_patterns/init_struct.rs"
 [[bin]]
 name = "builder"
 path = "src/bin/design_patterns/builder.rs"
+
+[[bin]]
+name = "simplify_struct"
+path = "src/bin/design_patterns/simplify_struct.rs"
