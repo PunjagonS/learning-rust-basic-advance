@@ -219,3 +219,7 @@ path = "src/bin/data_structure/linked_list_part2.rs"
 [[bin]]
 name = "doubly_linked_list"
 path = "src/bin/data_structure/doubly_linked_list.rs"
+
+[[bin]]
+name = "reference_circles"
+path = "src/bin/data_structure/reference_circles.rs"
