@@ -239,3 +239,11 @@ path = "src/bin/design_patterns/builder.rs"
 [[bin]]
 name = "simplify_struct"
 path = "src/bin/design_patterns/simplify_struct.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "size_unsize"
+path = "src/bin/size/size_unsize.rs"
