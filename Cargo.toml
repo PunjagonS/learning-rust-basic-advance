@@ -14,6 +14,7 @@ harness = false                                 # disable the default benchmarki
 
 [dependencies]
 array_tool = "1.0.3"
+negative-impl = "0.1.5"
 rand = "0.8.5"
 
 [[bin]]
@@ -251,3 +252,7 @@ path = "src/bin/size/size_unsize.rs"
 [[bin]]
 name = "size_references"
 path = "src/bin/size/size_references.rs"
+
+[[bin]]
+name = "size_traits"
+path = "src/bin/size/size_traits.rs"
