@@ -45,7 +45,7 @@ impl !Sync for ABC {}               // Opt out
 // fn some_fn<T: Sized>(t: &T) {}   // Explicit Sized Bound.
 
 /*
-    Using trait bound on generics 
+    Using: trait bound on generics 
     make this function can accept 
     both `sized` and `unsized` types.
 */

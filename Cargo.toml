@@ -246,17 +246,17 @@ path = "src/bin/design_patterns/simplify_struct.rs"
 
 
 [[bin]]
-name = "size_unsize"
-path = "src/bin/size/size_unsize.rs"
+name = "sized_unsized"
+path = "src/bin/size/sized_unsized.rs"
 
 [[bin]]
-name = "size_references"
-path = "src/bin/size/size_references.rs"
+name = "sized_references"
+path = "src/bin/size/sized_references.rs"
 
 [[bin]]
-name = "size_traits"
-path = "src/bin/size/size_traits.rs"
+name = "sized_traits"
+path = "src/bin/size/sized_traits.rs"
 
 [[bin]]
-name = "size_generics"
-path = "src/bin/size/size_generics.rs"
+name = "sized_generics"
+path = "src/bin/size/sized_generics.rs"
