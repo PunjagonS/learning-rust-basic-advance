@@ -249,5 +249,5 @@ name = "size_unsize"
 path = "src/bin/size/size_unsize.rs"
 
 [[bin]]
-name = "references"
-path = "src/bin/size/references.rs"
+name = "size_references"
+path = "src/bin/size/size_references.rs"
