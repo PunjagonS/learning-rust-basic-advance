@@ -256,3 +256,7 @@ path = "src/bin/size/size_references.rs"
 [[bin]]
 name = "size_traits"
 path = "src/bin/size/size_traits.rs"
+
+[[bin]]
+name = "size_generics"
+path = "src/bin/size/size_generics.rs"
