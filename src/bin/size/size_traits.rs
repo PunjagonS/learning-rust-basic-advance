@@ -46,8 +46,8 @@ impl !Sync for ABC {}               // Opt out
 
 /*
     Using trait bound on generics 
-    make this function can accept both 
-    `sized` and `unsized` types.
+    make this function can accept 
+    both `sized` and `unsized` types.
 */
 fn some_fn<T: ?Sized>(t: &T) {}
 
