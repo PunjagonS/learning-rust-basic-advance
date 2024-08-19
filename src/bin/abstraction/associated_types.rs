@@ -11,9 +11,9 @@
     Associated Types within trait are declared using the syntax of type,
     followed by the name of the associated type.
 
-    * We will use the Associated Types when there is only a single implement
+    !!!We will use the Associated Types when there is only a single implement
     of the trait per type. If there are multiple implementation of the same type
-    for a given trait, then we will use generics. *
+    for a given trait, then we will use generics.!!!
 */
 
 #[derive(Debug)]
@@ -81,10 +81,9 @@ impl DistanceThreeHours for Mph {
 }
 
 /*
-    Example apply Generics with Associate Types 
-    to allow us implement multiple times.
+    Example: using Generic instead of Associated Types to allow us 
+    implement multiple times of the same type for a given trait.
 */
-
 trait Addition<T, U> {
     fn add(self, rhs: T) -> U;
 }
