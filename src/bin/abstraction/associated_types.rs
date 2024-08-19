@@ -80,6 +80,27 @@ impl DistanceThreeHours for Mph {
     }
 }
 
+/// Alternative way: convert to using generic.
+// trait DistanceThreeHours<T>{
+//     fn distance_in_three_hours(&self) -> T;
+// }
+
+// impl DistanceThreeHours<Km> for Kmh {
+//     fn distance_in_three_hours(&self) -> Km {
+//         Km {
+//             value: self.value * 3,
+//         }
+//     }
+// }
+
+// impl DistanceThreeHours<Miles> for Mph {
+//     fn distance_in_three_hours(&self) -> Miles {
+//         Miles {
+//             value: self.value * 3,
+//         }
+//     }
+// }
+
 /*
     Example: using Generic instead of Associated Types to allow us 
     implement multiple times of the same type for a given trait.
