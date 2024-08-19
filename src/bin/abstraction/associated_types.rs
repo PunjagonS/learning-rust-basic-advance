@@ -36,21 +36,25 @@ struct Mph {
     value: u32,
 }
 
-// impl Kmh {
-//     fn distance_in_three_hours(&self) -> Km {
-//         Km {
-//             value: self.value * 3,
-//         }
-//     }
-// }
+// Code duplicate & redundancy
+impl Kmh {
+    fn distance_in_three_hours(&self) -> Km {
+        Km {
+            value: self.value * 3,
+        }
+    }
+}
 
-// impl Mph {
-//     fn distance_in_three_hours(&self) -> Miles {
-//         Miles {
-//             value: self.value * 3,
-//         }
-//     }
-// }
+// Code duplicate & redundancy
+impl Mph {
+    fn distance_in_three_hours(&self) -> Miles {
+        Miles {
+            value: self.value * 3,
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Using Associated Types
 trait DistanceThreeHours{

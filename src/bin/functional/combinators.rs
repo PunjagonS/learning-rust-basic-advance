@@ -1,5 +1,5 @@
 // --------------------------------------------
-//         Combinators
+//               Combinators
 // --------------------------------------------
 
 /*
@@ -28,7 +28,7 @@ fn main() {
         Alternative use Turbofish syntax
         .collect::<Vec<String>>();
 
-        or set result type explixitly
+        or set result type explicitly
 
         result: Vec<String>
     */
