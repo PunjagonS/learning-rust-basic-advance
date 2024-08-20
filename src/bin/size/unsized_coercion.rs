@@ -3,10 +3,10 @@
 // --------------------------------------------
 
 /*
-    Unsized Coercion occurs when a sized type is transformed into 
-    an unsized type. Similar to Deref Coercion.
+    Unsized coercion occurs when a sized type is transformed into 
+    an unsized type. Similar to deref coercion.
 
-    The Deref Coercion occurs for automatic conversions of a reference
+    The deref coercion occurs for automatic conversions of a reference
     to a type into a reference  to another type, specifically when
     using methods and functions that expect a certain type. It occurs when 
     a type gets coerced into another type following a deref operation.
@@ -39,7 +39,7 @@ impl<T> Some_Trait for [T] {            // &[T] require ref input && unknown siz
 
 fn main() {
     /*
-        Deref Coercion example:
+        Deref coercion example:
         string type coerced into string slice.
     */
     let some_strig = String::from("String");
@@ -51,11 +51,11 @@ fn main() {
     let array = [1,2,3];      // Known size.
 
     array_slice_fn(slice);              // Meet function required.
-    array_slice_fn(&vec);               // Deref Coercion.
-    array_slice_fn(&array);             // Unsized Coercion(coercion from sized to unsized).
+    array_slice_fn(&vec);               // Deref coercion.
+    array_slice_fn(&array);             // Unsized coercion(coercion from sized to unsized).
 
     // Using: trait instead.
     slice.method();                     // Meet function required.
-    vec.method();                       // Deref Coercion.
-    array.method();                     // Unsized Coercion
+    vec.method();                       // Deref coercion.
+    array.method();                     // Unsized coercion
 }
