@@ -24,8 +24,10 @@
 use negative_impl::negative_impl;
 
 /*
-    ABC cannot be transferred across threads (Send) and 
-    cannot be accessed from multiple threads simultaneously (Sync).
+    The impact of using "negative_impl" is ABC cannot be transferred 
+    across threads (Send) and cannot be accessed from multiple threads 
+    simultaneously (Sync). Or not thread-safe anymore. Trade of with
+    struct's size will be more lighter.
 */
 struct ABC;
 #[negative_impl]
@@ -45,8 +47,7 @@ impl !Sync for ABC {}               // Opt out
 // fn some_fn<T: Sized>(t: &T) {}   // Explicit Sized Bound.
 
 /*
-    Using: trait bound on generics 
-    make this function can accept 
+    Using: trait bound on generics make this function can accept 
     both `sized` and `unsized` types.
 */
 fn some_fn<T: ?Sized>(t: &T) {}

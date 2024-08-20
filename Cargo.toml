@@ -276,3 +276,7 @@ path = "src/bin/size/zero_sized_unit_type.rs"
 [[bin]]
 name = "zero_sized_unit_struct"
 path = "src/bin/size/zero_sized_unit_struct.rs"
+
+[[bin]]
+name = "zero_sized_phantom_data"
+path = "src/bin/size/zero_sized_phantom_data.rs"
