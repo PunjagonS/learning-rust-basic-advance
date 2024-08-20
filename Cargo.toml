@@ -264,3 +264,7 @@ path = "src/bin/size/sized_generics.rs"
 [[bin]]
 name = "unsized_coercion"
 path = "src/bin/size/unsized_coercion.rs"
+
+[[bin]]
+name = "zero_sized_never"
+path = "src/bin/size/zero_sized_never.rs"
