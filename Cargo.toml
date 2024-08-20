@@ -280,3 +280,11 @@ path = "src/bin/size/zero_sized_unit_struct.rs"
 [[bin]]
 name = "zero_sized_phantom_data"
 path = "src/bin/size/zero_sized_phantom_data.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "thread_basics"
+path = "src/bin/concurrency/thread_basics.rs"
