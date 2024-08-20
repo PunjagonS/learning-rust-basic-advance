@@ -5,7 +5,7 @@
 /*
     The sized trait is served as both:
 
-    - Auto Trait (Send, Sync etc)
+    - Auto Trait (Send, Sync, Unpin, UnwindSafe, RefUnwindSafe)
         special category of traits that the compiler automatically implements 
         for types based on certain criteria. These traits do not require the user 
         to explicitly implement them like Copy, Clone, Default, etc.,
