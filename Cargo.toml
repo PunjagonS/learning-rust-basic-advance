@@ -288,3 +288,7 @@ path = "src/bin/size/zero_sized_phantom_data.rs"
 [[bin]]
 name = "basic_threads"
 path = "src/bin/concurrency/basic_threads.rs"
+
+[[bin]]
+name = "ownership_threads"
+path = "src/bin/concurrency/ownership_threads.rs"
