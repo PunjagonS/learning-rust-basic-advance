@@ -1,6 +1,11 @@
 // --------------------------------------------
-//              Thread Basics
+//              Basic Threads
 // --------------------------------------------
+
+/*
+    Concurency is the multi tasks be run on random order.
+    Parallelism is the multi tasks be run on multi threads at the same time on hardware.
+*/
 
 use std::thread;
 use std::time::Duration;

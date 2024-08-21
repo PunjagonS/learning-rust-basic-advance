@@ -286,5 +286,5 @@ path = "src/bin/size/zero_sized_phantom_data.rs"
 
 
 [[bin]]
-name = "thread_basics"
-path = "src/bin/concurrency/thread_basics.rs"
+name = "basic_threads"
+path = "src/bin/concurrency/basic_threads.rs"
