@@ -36,7 +36,7 @@ fn main() {
             let mut file_lock = file.lock().unwrap();
             file_lock.text.push(format!("Hell from thread {i}"));
         });
-        thread_vec.push(handle);
+        thread_vec.push(handle);                                    // Store all threads in vec to call join() later.
     }
 
     // Make sure the threads go to completion by calling join().
