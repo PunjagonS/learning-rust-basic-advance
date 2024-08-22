@@ -312,3 +312,7 @@ path = "src/bin/concurrency/sharing_states_p2.rs"
 [[bin]]
 name = "barriers"
 path = "src/bin/concurrency/barriers.rs"
+
+[[bin]]
+name = "scoped_threads"
+path = "src/bin/concurrency/scoped_threads.rs"
