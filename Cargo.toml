@@ -292,3 +292,7 @@ path = "src/bin/concurrency/basic_threads.rs"
 [[bin]]
 name = "ownership_threads"
 path = "src/bin/concurrency/ownership_threads.rs"
+
+[[bin]]
+name = "message_channels_p1"
+path = "src/bin/concurrency/message_channels_p1.rs"
