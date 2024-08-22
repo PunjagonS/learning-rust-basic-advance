@@ -24,6 +24,7 @@ fn main() {
     // Solution 2 : using code block for auto unlocked m
     {
         let mut num = m.lock().unwrap();
+        println!("m is {:?}", *num);
         *num = 10;                                                                                   
     }
 
