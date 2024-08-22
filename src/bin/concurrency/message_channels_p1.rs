@@ -46,6 +46,8 @@ fn main() {
     // Work only for single message.
     // let recieved_val = rx.recv().unwrap();
     // println!("Recieved {recieved_val}");
+
+    // For recieved multiple values.
     for message in rx {
         println!("Recieved {message}")
     }
