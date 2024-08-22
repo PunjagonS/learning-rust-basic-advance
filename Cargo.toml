@@ -304,3 +304,7 @@ path = "src/bin/concurrency/message_channels_p2.rs"
 [[bin]]
 name = "sharing_states_p1"
 path = "src/bin/concurrency/sharing_states_p1.rs"
+
+[[bin]]
+name = "sharing_states_p2"
+path = "src/bin/concurrency/sharing_states_p2.rs"
