@@ -308,3 +308,7 @@ path = "src/bin/concurrency/sharing_states_p1.rs"
 [[bin]]
 name = "sharing_states_p2"
 path = "src/bin/concurrency/sharing_states_p2.rs"
+
+[[bin]]
+name = "barriers"
+path = "src/bin/concurrency/barriers.rs"
