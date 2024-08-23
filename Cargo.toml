@@ -316,3 +316,7 @@ path = "src/bin/concurrency/barriers.rs"
 [[bin]]
 name = "scoped_threads"
 path = "src/bin/concurrency/scoped_threads.rs"
+
+[[bin]]
+name = "thread_park"
+path = "src/bin/concurrency/thread_park.rs"
