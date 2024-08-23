@@ -1,50 +1,50 @@
 // --------------------------------------------
-//          Enums
+//                  Enums
 // --------------------------------------------
 
 /*
-    An enumeration, also referred to as an enum, is a simultaneous definition of a nominal enumerated type as well as a set of constructors,
-    that can be used to create or pattern-match values of the corresponding enumerated type.
+   An enumeration, also referred to as an enum, is a simultaneous definition of a nominal enumerated type as well as a set of constructors,
+   that can be used to create or pattern-match values of the corresponding enumerated type.
 
-    Enumerations are declared with the keyword enum.
+   Enumerations are declared with the keyword enum.
 
-    Enumeration constructors can have Tuple, Struct, Unit either named or unnamed fields:
+   Enumeration constructors can have Tuple, Struct, Unit either named or unnamed fields:
 
-    In this example, Cat is a struct-like enum variant, whereas Dog is simply called an enum variant 
-    where Dog is Tuple and Cat is Struct
-    enum Animal {
-        Dog(String, f64),                       unnamed field (String, f64)
-        Cat{ name: String, weight: f64 },       named
-    }
+   In this example, Cat is a struct-like enum variant, whereas Dog is simply called an enum variant
+   where Dog is Tuple and Cat is Struct
+   enum Animal {
+       Dog(String, f64),                       unnamed field (String, f64)
+       Cat{ name: String, weight: f64 },       named
+   }
 
-    An enum where no constructors contain fields are called a field-less enum. For example, this is a fieldless enum:
-    enum Fieldless {
-        Tuple(),            - enum variant
-        Struct{},           - struct-like enum variant
-        Unit,               - unit variants
-    }
+   An enum where no constructors contain fields are called a field-less enum. For example, this is a fieldless enum:
+   enum Fieldless {
+       Tuple(),            - enum variant
+       Struct{},           - struct-like enum variant
+       Unit,               - unit variants
+   }
 
-    Structs and enums are powerful constructs on their own, but they can be even more powerful when combined. 
-    By using enums to group related structs or adding a field to a struct that is an enum type, 
-    you can create complex data types that accurately model your problem domain.
+   Structs and enums are powerful constructs on their own, but they can be even more powerful when combined.
+   By using enums to group related structs or adding a field to a struct that is an enum type,
+   you can create complex data types that accurately model your problem domain.
 
-    enum Enemy {
-        Goomba(Goomba),
-        KoopaTroopa(KoopaTroopa),
-        HammerBro(HammerBro),
-    }
+   enum Enemy {
+       Goomba(Goomba),
+       KoopaTroopa(KoopaTroopa),
+       HammerBro(HammerBro),
+   }
 
-    struct Goomba {
-        position: Position,
-        is_stomped: bool,
-    }
+   struct Goomba {
+       position: Position,
+       is_stomped: bool,
+   }
 
-    struct KoopaTroopa {
-        position: Position,
-        is_stomped: bool,
-        is_in_shell: bool,
-    }
- */
+   struct KoopaTroopa {
+       position: Position,
+       is_stomped: bool,
+       is_in_shell: bool,
+   }
+*/
 
 #[derive(Debug)]
 enum WeekDay {
@@ -91,12 +91,11 @@ impl TravelType2 {
     }
 }
 
-
 /////////////////////////////////////////////////////////////////////////
 /*
-    Use Case 2: represent different design choices for modeling a Person 
-        with potentially different types of addresses. While they both serve the purpose 
-        of associating a person with an address, they are not directly interchangeable 
+    Use Case 2: represent different design choices for modeling a Person
+        with potentially different types of addresses. While they both serve the purpose
+        of associating a person with an address, they are not directly interchangeable
         because they represent different conceptual models. Here’s how they compare and differ:
 
     struct HomeAddress {
@@ -132,15 +131,15 @@ impl TravelType2 {
 
     Comparison of the Two Approaches
     1. Conceptual Model:
-        - Option-based Structs: This model assumes that a person can have both a home address 
+        - Option-based Structs: This model assumes that a person can have both a home address
             and a work address, or either one, or none. Each type of address is optional (Option<HomeAddress> and Option<WorkAddress>).
-        - Enum-based Struct: This model assumes that a person can have only one type of address 
+        - Enum-based Struct: This model assumes that a person can have only one type of address
             at a time: either a home address or a work address, but not both simultaneously. The Address enum captures this choice.
 
     2.Data Representation:
-        - Option-based Structs: You can represent multiple addresses independently. 
+        - Option-based Structs: You can represent multiple addresses independently.
             For instance, Person might have both a home and a work address, or just one of them.
-        - Enum-based Struct: The Person struct can hold only one Address at a time, 
+        - Enum-based Struct: The Person struct can hold only one Address at a time,
             ensuring mutual exclusivity between the address types.
 
     3. Data Usage:
@@ -156,31 +155,30 @@ impl TravelType2 {
         - Enum-based Struct: Accessing the address requires pattern matching to determine which variant (home or work) is being used.
 
     4. Flexibility:
-        - Option-based Structs: More flexible if you need to allow multiple addresses or need to potentially 
+        - Option-based Structs: More flexible if you need to allow multiple addresses or need to potentially
             add more types of addresses in the future. It also supports scenarios where a person might not have any address.
-        - Enum-based Struct: Less flexible in terms of adding multiple address types but enforces a stricter model 
+        - Enum-based Struct: Less flexible in terms of adding multiple address types but enforces a stricter model
             where only one type of address can be associated with a person.
 
     5. Memory Usage:
-        - Option-based Structs: This approach may use more memory because you have two Option fields, 
+        - Option-based Structs: This approach may use more memory because you have two Option fields,
             which each carry overhead for indicating presence or absence.
-        - Enum-based Struct: Potentially more memory-efficient as it only holds one address type 
+        - Enum-based Struct: Potentially more memory-efficient as it only holds one address type
             at a time and carries a small overhead for the enum tag.
 
     Replacing One with the Each other
-        - Replacing Option-based Structs with Enum: You would lose the ability to store multiple addresses 
-            for a person simultaneously. The model becomes simpler in terms of ensuring mutual exclusivity 
+        - Replacing Option-based Structs with Enum: You would lose the ability to store multiple addresses
+            for a person simultaneously. The model becomes simpler in terms of ensuring mutual exclusivity
             but might not fit scenarios where multiple addresses are valid.
-        - Replacing Enum with Option-based Structs: You gain the ability to store multiple addresses 
+        - Replacing Enum with Option-based Structs: You gain the ability to store multiple addresses
             but introduce more complexity in handling the possibility of either or both addresses being None.
 
     Conclusion
-        These two designs are not directly interchangeable without altering the conceptual model of your data. 
-        If your application requires a person to have multiple addresses, or potentially none, the Option-based approach is better. 
-        If a person should have only one address type at a time, the enum-based approach is more appropriate. 
+        These two designs are not directly interchangeable without altering the conceptual model of your data.
+        If your application requires a person to have multiple addresses, or potentially none, the Option-based approach is better.
+        If a person should have only one address type at a time, the enum-based approach is more appropriate.
         Your choice should depend on the specific requirements of your application.
 */
-
 
 fn main() {
     let mut day = "Saturday".to_string();
