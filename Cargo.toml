@@ -16,6 +16,7 @@ harness = false                                 # disable the default benchmarki
 array_tool = "1.0.3"
 negative-impl = "0.1.5"
 rand = "0.8.5"
+tokio = {version = "1.39.3", features = ["full"]}
 
 [[bin]]
 name = "var"
@@ -320,3 +321,7 @@ path = "src/bin/concurrency/scoped_threads.rs"
 [[bin]]
 name = "thread_park"
 path = "src/bin/concurrency/thread_park.rs"
+
+[[bin]]
+name = "async_await"
+path = "src/bin/concurrency/async_await.rs"
