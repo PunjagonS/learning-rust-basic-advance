@@ -17,6 +17,7 @@ array_tool = "1.0.3"
 negative-impl = "0.1.5"
 rand = "0.8.5"
 tokio = {version = "1.39.3", features = ["full"]}
+ureq = "2.10.1"
 
 [[bin]]
 name = "var"
@@ -329,3 +330,7 @@ path = "src/bin/concurrency/async_await.rs"
 [[bin]]
 name = "tokio_tasks"
 path = "src/bin/concurrency/tokio_tasks.rs"
+
+[[bin]]
+name = "web_scrapping"
+path = "src/bin/concurrency/web_scrapping.rs"
