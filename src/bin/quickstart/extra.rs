@@ -7,6 +7,7 @@
 //         - Statistics
 // --------------------------------------------
 
+use std::f32::consts::PI as PI_STANDARD;
 use std::io::stdin;
 
 fn main() {
@@ -57,7 +58,8 @@ fn main() {
     let x: i32 = 1_000_000; // 1 million
 
     static WELCOME: &str = "Welcome to Rust Programming";
-    const PI: f32 = 3.14159;
+    // const PI: f32 = 3.14159;
+    const PI: f32 = PI_STANDARD;
 
     let a = PI; // Constant pass by value
     let b = PI; // Constant pass by value

@@ -6,6 +6,8 @@
 //          - Boolean
 // --------------------------------------------
 
+use std::f32::consts::PI;
+
 fn main() {
     // Unsigned integers (positive numbers only)
     let unsigned_num: u8 = 5; // u16, u32, u64, u128
@@ -14,7 +16,8 @@ fn main() {
     let signed_num: i8 = -5; // i16, i32, i64, i128
 
     // Floating point numbers
-    let float_num: f32 = 3.14; // f64 (default)
+    // let float_num: f32 = 3.14; // f64 (default)
+    let float_num: f32 = PI; // f64 (default)
 
     // Platform specific integers ()
     let arch_1: isize = 5; // isize repreesents a pointer-sized with unsigned integers
