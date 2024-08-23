@@ -325,3 +325,7 @@ path = "src/bin/concurrency/thread_park.rs"
 [[bin]]
 name = "async_await"
 path = "src/bin/concurrency/async_await.rs"
+
+[[bin]]
+name = "tokio_tasks"
+path = "src/bin/concurrency/tokio_tasks.rs"
