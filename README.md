@@ -65,6 +65,28 @@ To better understand the structure of your Rust code, you can visualize the modu
    cargo modules structure --lib
    ```
 
+### Expanding Macros
+
+To expand macros for a specific binary target, you can use the `cargo expand` command. This is useful for debugging and understanding how macros are transformed into code.
+
+1. **Install cargo-expand:**
+
+   ```bash
+   cargo install cargo-expand
+   ```
+
+2. **Expand macros for a specific binary target:**
+
+   ```bash
+   cargo expand --bin <binary_name>
+   ```
+
+   Replace `<binary_name>` with the name of the binary you want to expand. For example, to expand the `capturing_types` binary:
+
+   ```bash
+   cargo expand --bin capturing_types
+   ```
+
 ### Testing Code
 
 1. **Command to Run All Tests:**
@@ -79,10 +101,27 @@ To better understand the structure of your Rust code, you can visualize the modu
 
    ```bash
    cargo test --doc
+   ```
+
+   Description: Runs documentation tests.
+
+   ```bash
    cargo test --lib
+   ```
+
+   Description: Runs all unit tests in the library.
+
+   ```bash
    cargo test --lib should_not
+   ```
+
+   Description: Runs a specific unit test named `should_not` in the library.
+
+   ```bash
    cargo test --lib -- --ignored
    ```
+
+   Description: Runs all unit tests in the library that are marked as ignored.
 
 3. **Command to Run Integration Test:**
 
