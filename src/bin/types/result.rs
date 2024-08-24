@@ -2,8 +2,6 @@
 //                  Result
 // --------------------------------------------
 
-use std::f32::consts::E;
-
 #[derive(Debug)]
 struct Student2 {
     name: String,
