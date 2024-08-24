@@ -334,3 +334,12 @@ path = "src/bin/concurrency/tokio_tasks.rs"
 [[bin]]
 name = "web_scrapping"
 path = "src/bin/concurrency/web_scrapping.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "declarative"
+path = "src/bin/macros/declarative.rs"
+
