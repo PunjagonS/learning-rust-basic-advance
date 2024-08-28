@@ -346,3 +346,7 @@ path = "src/bin/macros/declarative.rs"
 [[bin]]
 name = "capturing_types"
 path = "src/bin/macros/capturing_types.rs"
+
+[[bin]]
+name = "repeating_patterns"
+path = "src/bin/macros/repeating_patterns.rs"
