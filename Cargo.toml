@@ -343,3 +343,6 @@ path = "src/bin/concurrency/web_scrapping.rs"
 name = "declarative"
 path = "src/bin/macros/declarative.rs"
 
+[[bin]]
+name = "capturing_types"
+path = "src/bin/macros/capturing_types.rs"
