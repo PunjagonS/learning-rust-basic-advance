@@ -354,3 +354,7 @@ path = "src/bin/macros/repeating_patterns.rs"
 [[bin]]
 name = "practice"
 path = "src/bin/macros/practice.rs"
+
+[[bin]]
+name = "question_mark"
+path = "src/bin/macros/question_mark.rs"
