@@ -14,9 +14,9 @@ harness = false                                 # disable the default benchmarki
 
 [dependencies]
 array_tool = "1.0.3"
-negative-impl = "0.1.5"
+negative-impl = "0.1.6"
 rand = "0.8.5"
-tokio = {version = "1.39.3", features = ["full"]}
+tokio = {version = "1.40.0", features = ["full"]}
 ureq = "2.10.1"
 
 [[bin]]
