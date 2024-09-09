@@ -1,9 +1,9 @@
 // --------------------------------------------
-//          IntoIterator
+//                IntoIterator
 // --------------------------------------------
 
 /*
-    If Iterator is implemented on a type which you can interate over so 
+    If Iterator is implemented on a type which you can interate over so
     the IntoIterator is implemented on type which can be turn into Iterator.
 */
 

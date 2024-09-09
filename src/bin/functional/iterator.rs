@@ -1,9 +1,9 @@
 // --------------------------------------------
-//          Iterator
+//                  Iterator
 // --------------------------------------------
 
 /*
-    The iterator design pattern allows a diffeerence typs 
+    The iterator design pattern allows a diffeerence typs
     to have a common interface for accessing the elements
     of a type sequentially.
 */

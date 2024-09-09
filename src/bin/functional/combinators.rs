@@ -1,5 +1,5 @@
 // --------------------------------------------
-//               Combinators
+//                 Combinators
 // --------------------------------------------
 
 /*
@@ -19,20 +19,18 @@ fn main() {
     // }
     // println!("Result: {:?}", result);
 
-    // Using combinators syntax, work the same as code above 
+    // Using combinators syntax, work the same as code above
     let result = words
-    .into_iter()
-    .filter(|&word| word.starts_with('a') || word.starts_with('b'))
-    .map(|word| word.to_uppercase() )
-    /*
-        Alternative use Turbofish syntax
+        .into_iter()
+        .filter(|&word| word.starts_with('a') || word.starts_with('b'))
+        .map(|word| word.to_uppercase())
+        /*
+            Alternative use Turbofish syntax
+            .collect::<Vec<String>>();
+            or set result type explicitly
+            result: Vec<String>
+        */
         .collect::<Vec<String>>();
-
-        or set result type explicitly
-
-        result: Vec<String>
-    */
-    .collect::<Vec<String>>();
 
     println!("Result: {:?}", result);
 }
