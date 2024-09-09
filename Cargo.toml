@@ -358,3 +358,11 @@ path = "src/bin/macros/practice.rs"
 [[bin]]
 name = "question_mark"
 path = "src/bin/macros/question_mark.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "search_hashmaps"
+path = "src/bin/reallife_problem/search_hashmaps.rs"
