@@ -11,6 +11,12 @@
 
 use std::collections::HashMap;
 
+/*
+    The concept of this function can be understood as encoding each word into
+    a frequency-based "hash" and then grouping words that share the same "hash."
+    These words are anagrams of each other, meaning they have the same characters,
+    the same character frequencies, but in different positions.
+*/
 fn word_groupings(words_list: Vec<String>) -> Vec<Vec<String>> {
     let mut word_hash = HashMap::new();
 
