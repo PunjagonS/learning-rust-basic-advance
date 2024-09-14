@@ -364,5 +364,5 @@ path = "src/bin/macros/question_mark.rs"
 
 
 [[bin]]
-name = "search_hashmaps"
-path = "src/bin/reallife_problem/search_hashmaps.rs"
+name = "word_grouping"
+path = "src/bin/reallife_problem/word_grouping.rs"
