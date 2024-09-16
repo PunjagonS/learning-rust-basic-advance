@@ -1,4 +1,4 @@
-/* -----------------------------------------------------
+/*  -----------------------------------------------------
     Correct Search Results Using Word Grouping
         Description
         - Given a list if words, group the words that are anagrams

@@ -1,4 +1,4 @@
-/* -----------------------------------------------------
+/*  -----------------------------------------------------
     Popularity SCores
         Description
         - Given some products along with its respectively popularity scores,
