@@ -374,3 +374,7 @@ path = "src/bin/reallife_problem/popularity_scores.rs"
 [[bin]]
 name = "highest_stock_price"
 path = "src/bin/reallife_problem/highest_stock_price.rs"
+
+[[bin]]
+name = "find_employee_no_meeting"
+path = "src/bin/reallife_problem/find_employee_no_meeting.rs"
