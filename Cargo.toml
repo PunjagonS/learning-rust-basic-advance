@@ -382,3 +382,7 @@ path = "src/bin/reallife_problem/find_employee_no_meeting.rs"
 [[bin]]
 name = "longest_working_hrs"
 path = "src/bin/reallife_problem/longest_working_hrs.rs"
+
+[[bin]]
+name = "items_suggestion"
+path = "src/bin/reallife_problem/items_suggestion.rs"
