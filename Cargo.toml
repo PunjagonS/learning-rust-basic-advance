@@ -386,3 +386,7 @@ path = "src/bin/reallife_problem/longest_working_hrs.rs"
 [[bin]]
 name = "items_suggestion"
 path = "src/bin/reallife_problem/items_suggestion.rs"
+
+[[bin]]
+name = "items_ranges_search"
+path = "src/bin/reallife_problem/items_ranges_search.rs"
