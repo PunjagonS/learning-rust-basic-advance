@@ -390,3 +390,7 @@ path = "src/bin/reallife_problem/items_suggestion.rs"
 [[bin]]
 name = "items_ranges_search"
 path = "src/bin/reallife_problem/items_ranges_search.rs"
+
+[[bin]]
+name = "fetching_top_products"
+path = "src/bin/reallife_problem/fetching_top_products.rs"
