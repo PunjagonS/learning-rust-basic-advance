@@ -70,19 +70,26 @@ impl<T: Debug> Linklist<T> {
             return;
         }
 
-        let mut prev = None;
-        let mut current_node = self.head.take();
+        let mut reversed = None;
+        let mut current_node = self.head.take(); // 40 45
         while current_node.is_some() {
             /*
                 as_mut() returns a mutable reference to the value inside the Option,
                 and then we use .unwrap() to get the value inside the Box.
             */
-            let next = current_node.as_mut().unwrap().next.take();
-            current_node.as_mut().unwrap().next = prev.take();
-            prev = current_node.take();
-            current_node = next;
+            let next = current_node.as_mut().unwrap().next.take(); // 40 45
+
+            // Set the next pointer of the current node to the reversed list
+            current_node.as_mut().unwrap().next = reversed.take(); // 23 11 -> None
+
+            // Set the reversed list to the current node that points next to reversed as above line
+            reversed = current_node.take(); // 35 -> 23 -> 11 -> None
+
+            // Set the current node to the next node
+            current_node = next; // 40 45
         }
-        self.head = prev.take();
+
+        self.head = reversed.take();
     }
 }
 
