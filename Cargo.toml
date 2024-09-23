@@ -364,8 +364,8 @@ path = "src/bin/macros/question_mark.rs"
 
 
 [[bin]]
-name = "word_grouping"
-path = "src/bin/reallife_problem/word_grouping.rs"
+name = "word_anagrams_grouping"
+path = "src/bin/reallife_problem/word_anagrams_grouping.rs"
 
 [[bin]]
 name = "popularity_scores"
@@ -396,5 +396,5 @@ name = "fetching_top_products"
 path = "src/bin/reallife_problem/fetching_top_products.rs"
 
 [[bin]]
-name = "effective_trie_ds"
-path = "src/bin/reallife_problem/effective_trie_ds.rs"
+name = "word_completion"
+path = "src/bin/reallife_problem/word_completion.rs"

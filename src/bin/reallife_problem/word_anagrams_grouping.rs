@@ -63,13 +63,14 @@ fn main() {
         "het".to_string(),
         "stupid".to_string(),
         "studpi".to_string(),
+        "stdupi".to_string(),
         "apple".to_string(),
         "appel".to_string(),
     ];
 
     let grouping = word_groupings(words);
 
-    let input_word = String::from("teh");
+    let input_word = String::from("stdupi");
     println!("Input word : {:?}", input_word);
     for i in grouping.into_iter() {
         if i.contains(&input_word) {
