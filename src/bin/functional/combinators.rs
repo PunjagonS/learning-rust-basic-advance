@@ -20,10 +20,12 @@ fn main() {
     // println!("Result: {:?}", result);
 
     // Using combinators syntax, work the same as code above
+    // let result: Vec<String> = words // Case not use turbofish
     let result = words
         .into_iter()
         .filter(|&word| word.starts_with('a') || word.starts_with('b'))
         .map(|word| word.to_uppercase())
+        // .collect();
         /*
             Alternative use Turbofish syntax
             .collect::<Vec<String>>();
