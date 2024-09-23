@@ -394,3 +394,7 @@ path = "src/bin/reallife_problem/items_ranges_search.rs"
 [[bin]]
 name = "fetching_top_products"
 path = "src/bin/reallife_problem/fetching_top_products.rs"
+
+[[bin]]
+name = "effective_trie_ds"
+path = "src/bin/reallife_problem/effective_trie_ds.rs"
