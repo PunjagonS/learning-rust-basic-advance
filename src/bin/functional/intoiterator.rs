@@ -5,6 +5,10 @@
 /*
     If Iterator is implemented on a type which you can interate over so
     the IntoIterator is implemented on type which can be turn into Iterator.
+
+    When to use: Use .into_iter() when you don't need the original collection
+    afterward because it will be consumed,
+    and ownership of the elements is transferred
 */
 
 // trait IntoIterator {
