@@ -42,10 +42,9 @@ fn main() {
         from products in order.
     */
     for (product_id, popularity) in products {
-        if popularity_analysis(popularity) {
-            println!("{} popularity is increasing or decreasing", product_id);
-        } else {
-            println!("{} popularity is fluctuating", product_id);
+        match popularity_analysis(popularity) {
+            true => println!("{} popularity is increasing or decreasing", product_id),
+            false => println!("{} popularity is fluctuating", product_id),
         }
     }
 }
