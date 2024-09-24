@@ -21,11 +21,8 @@ fn find_longest_busy_time(working_slots: Vec<Vec<u8>>) -> u8 {
     }
 
     // for i in 0..employee_longest_non_stop_working.len() {
-    for (i, _) in employee_longest_non_stop_working.iter().enumerate() {
-        println!(
-            "Employee Number {} has worked nonstop for {} slots",
-            i, employee_longest_non_stop_working[i]
-        );
+    for (i, val) in employee_longest_non_stop_working.iter().enumerate() {
+        println!("Employee Number {} has worked nonstop for {} slots", i, val);
     }
 
     let max_value = employee_longest_non_stop_working.iter().max();
