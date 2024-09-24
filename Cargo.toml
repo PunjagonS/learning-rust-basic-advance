@@ -398,3 +398,7 @@ path = "src/bin/reallife_problem/fetching_top_products.rs"
 [[bin]]
 name = "word_completion"
 path = "src/bin/reallife_problem/word_completion.rs"
+
+[[bin]]
+name = "recently_purchased_products"
+path = "src/bin/reallife_problem/recently_purchased_products.rs"
