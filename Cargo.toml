@@ -402,3 +402,7 @@ path = "src/bin/reallife_problem/word_completion.rs"
 [[bin]]
 name = "recently_purchased_products"
 path = "src/bin/reallife_problem/recently_purchased_products.rs"
+
+[[bin]]
+name = "showing_participants_online_meeting"
+path = "src/bin/reallife_problem/showing_participants_online_meeting.rs"
