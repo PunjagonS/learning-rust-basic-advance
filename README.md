@@ -19,6 +19,9 @@ Learning Rust from basic to advance
 - Section 15 -> Understanding Size in Rust
 - Section 16 -> Concurrency
 - Section 17 -> Macros
+- Section 18 -> Real Life Problems
+- Section 19 -> Web Programming
+- Section 20 -> Text Processing, File and Directory Handling
 
 ### Module Tree Structure
 
