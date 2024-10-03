@@ -414,3 +414,11 @@ path = "src/bin/reallife_problem/showing_participants_online_meeting.rs"
 [[bin]]
 name = "web_basic"
 path = "src/bin/web/basic.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "file_handling"
+path = "src/bin/file/file_handling.rs"
