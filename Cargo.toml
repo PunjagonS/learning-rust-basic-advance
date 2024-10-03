@@ -422,3 +422,7 @@ path = "src/bin/web/basic.rs"
 [[bin]]
 name = "file_handling"
 path = "src/bin/file/file_handling.rs"
+
+[[bin]]
+name = "directory_handling"
+path = "src/bin/file/directory_handling.rs"
