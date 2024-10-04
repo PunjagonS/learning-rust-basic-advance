@@ -16,6 +16,7 @@ harness = false                                 # disable the default benchmarki
 array_tool = "1.0.3"
 negative-impl = "0.1.6"
 rand = "0.8.5"
+regex = "1.11.0"
 tokio = {version = "1.40.0", features = ["full"]}
 ureq = "2.10.1"
 
@@ -426,3 +427,7 @@ path = "src/bin/file/file_handling.rs"
 [[bin]]
 name = "directory_handling"
 path = "src/bin/file/directory_handling.rs"
+
+[[bin]]
+name = "regex"
+path = "src/bin/file/regex.rs"
