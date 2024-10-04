@@ -439,3 +439,7 @@ path = "src/bin/file/regex_part2.rs"
 [[bin]]
 name = "string_literal"
 path = "src/bin/file/string_literal.rs"
+
+[[bin]]
+name = "string_concatenate_ownership"
+path = "src/bin/file/string_concatenate_ownership.rs"
