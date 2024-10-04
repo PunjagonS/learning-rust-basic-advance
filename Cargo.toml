@@ -435,3 +435,7 @@ path = "src/bin/file/regex_part1.rs"
 [[bin]]
 name = "regex_part2"
 path = "src/bin/file/regex_part2.rs"
+
+[[bin]]
+name = "string_literal"
+path = "src/bin/file/string_literal.rs"
