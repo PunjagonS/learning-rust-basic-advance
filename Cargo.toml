@@ -443,3 +443,12 @@ path = "src/bin/file/string_literal.rs"
 [[bin]]
 name = "string_concatenate_ownership"
 path = "src/bin/file/string_concatenate_ownership.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "inputs_coercion"
+path = "src/bin/miscellaneous/inputs_coercion.rs"
+
