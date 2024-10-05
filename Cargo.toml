@@ -452,3 +452,7 @@ path = "src/bin/file/string_concatenate_ownership.rs"
 name = "inputs_coercion"
 path = "src/bin/miscellaneous/inputs_coercion.rs"
 
+[[bin]]
+name = "efficient_tips"
+path = "src/bin/miscellaneous/efficient_tips.rs"
+
