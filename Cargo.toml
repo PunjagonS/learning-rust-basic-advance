@@ -456,3 +456,6 @@ path = "src/bin/miscellaneous/inputs_coercion.rs"
 name = "efficient_tips"
 path = "src/bin/miscellaneous/efficient_tips.rs"
 
+[[bin]]
+name = "todo_macros"
+path = "src/bin/miscellaneous/todo_macros.rs"
