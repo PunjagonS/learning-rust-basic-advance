@@ -14,9 +14,11 @@ harness = false                                 # disable the default benchmarki
 
 [dependencies]
 array_tool = "1.0.3"
+chrono = "0.4.38"
 negative-impl = "0.1.6"
 rand = "0.8.5"
 regex = "1.11.0"
+sha256 = "1.5.0"
 tokio = {version = "1.40.0", features = ["full"]}
 ureq = "2.10.1"
 
@@ -463,3 +465,12 @@ path = "src/bin/miscellaneous/todo_macros.rs"
 [[bin]]
 name = "performance_lints"
 path = "src/bin/miscellaneous/performance_lints.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "blockchain_basic"
+path = "src/bin/blockchain/basic.rs"
+
