@@ -35,7 +35,7 @@ impl BlockChain {
             }
 
             Some(latest_block) => {
-                if self.is_valid_block(&new_block, latest_block) {
+                if self.is_block_valid(&new_block, latest_block) {
                     self.blocks.push(new_block);
                     println!("Block has been successfully added");
                 } else {
@@ -45,7 +45,7 @@ impl BlockChain {
         }
     }
 
-    fn is_valid_block(&self, new_block: &Block, latest_block: &Block) -> bool {
+    fn is_block_valid(&self, new_block: &Block, latest_block: &Block) -> bool {
         if new_block.previous_hash != latest_block.hash {
             println!("Block with id {} has wrong previous hash", new_block.id);
             return false;
@@ -71,6 +71,61 @@ impl BlockChain {
             return false;
         }
         true
+    }
+
+    /*
+        This function is used to check if the blockchain is valid
+        by going through each block and checking if the hash is correct
+    */
+    fn is_chain_valid(&self, chain: &Vec<Block>) -> bool {
+        match chain.len() {
+            0 => println!("The chain is empty"),
+            1 => println!("The chain only contains a single block"),
+            _ => {
+                for i in 1..chain.len() {
+                    let previous_block = chain.get(i - 1).unwrap();
+                    let current_block = chain.get(i).unwrap();
+                    if !self.is_block_valid(current_block, previous_block) {
+                        return false;
+                    }
+                }
+            }
+        }
+        println!("The chain is found to be correct and valid");
+        true
+    }
+
+    fn compare_and_update_chain(
+        &self,
+        local: Vec<Block>,
+        remote: Vec<Block>,
+    ) -> Option<Vec<Block>> {
+        let is_local_valid = self.is_chain_valid(&local);
+        let is_remote_valid = self.is_chain_valid(&remote);
+
+        match (is_local_valid, is_remote_valid) {
+            (true, true) => {
+                if local.len() >= remote.len() {
+                    println!("The local copy is valid");
+                    Some(local)
+                } else {
+                    println!("The remote copy is valid");
+                    Some(remote)
+                }
+            }
+            (true, false) => {
+                println!("The local copy is valid, returning local copy");
+                Some(local)
+            }
+            (false, true) => {
+                println!("The remote copy is valid, returning remote copy");
+                Some(remote)
+            }
+            (false, false) => {
+                println!("Both the copies are invalid");
+                None
+            }
+        }
     }
 }
 
@@ -117,10 +172,36 @@ impl Block {
 }
 
 fn main() {
-    let mut blockchain = BlockChain::new();
-    blockchain.starting_block();
-    println!("{:?}", blockchain);
+    let mut new_bc = BlockChain::new();
+    new_bc.starting_block();
+    println!("{:?}", new_bc);
 
-    let new_block = Block::new(2, "Azam".to_string(), blockchain.blocks[0].hash.clone());
-    blockchain.try_add_block(new_block);
+    let new_block = Block::new(
+        new_bc.blocks.last().unwrap().id + 1,
+        "Azam".to_string(),
+        new_bc.blocks.last().unwrap().hash.clone(),
+    );
+    new_bc.try_add_block(new_block);
+
+    new_bc.is_chain_valid(&new_bc.blocks);
+
+    let new_block = Block::new(
+        new_bc.blocks.last().unwrap().id + 1,
+        "Kamran".to_string(),
+        new_bc.blocks.last().unwrap().hash.clone(),
+    );
+    new_bc.try_add_block(new_block);
+
+    let new_block = Block::new(
+        new_bc.blocks.last().unwrap().id + 1,
+        "Khan".to_string(),
+        new_bc.blocks.last().unwrap().hash.clone(),
+    );
+    new_bc.try_add_block(new_block);
+
+    new_bc.is_chain_valid(&new_bc.blocks);
+
+    new_bc.blocks = new_bc
+        .compare_and_update_chain(new_bc.blocks.clone(), new_bc.blocks.clone())
+        .unwrap_or_default();
 }
