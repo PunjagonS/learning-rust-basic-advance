@@ -11,6 +11,36 @@
     nothing to do with the ownership of the variables, and the
     variables retain their ownership as long as we do not change
     the ownership in the expansion of the code.
+
+
+    THE DIFFERENT TYPES OF CAPTURES:
+
+    expr: expressions
+    matches to a valid rust expression
+    "hello".to_string(), vec![1, 2, 3], 1 + 2, 1
+
+    stmt: statements
+    matches to a rust statement
+    let x = 1, x.push(1), return Some(x)
+
+    ident: identifiers
+    matches to a rust identifier
+    variable name, function name, module name
+
+    ty: types
+    matches to a rust type
+    i32, Vec<String>, Option<T>
+
+    path: paths
+    matches to a rust path
+    std::mem::swap, crate::some::function
+
+    REPITITION SPECIFIERS:
+    * matches zero or more of the preceding token
+    + matches one or more of the preceding token
+    ? matches zero or one of the preceding token
+    {n} matches exactly n of the preceding token
+    {n,m} matches between n and m of the preceding token
 */
 
 macro_rules! input {
