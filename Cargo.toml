@@ -190,8 +190,8 @@ name = "lifetime_elision"
 path = "src/bin/memory/lifetime_elision.rs"
 
 [[bin]]
-name = "lifetimes_in_structs"
-path = "src/bin/memory/lifetimes_in_structs.rs"
+name = "lifetimes_structs"
+path = "src/bin/memory/lifetimes_structs.rs"
 
 [[bin]]
 name = "box_smart_pointer"
@@ -269,9 +269,10 @@ path = "src/bin/size/sized_generics.rs"
 name = "unsized_coercion"
 path = "src/bin/size/unsized_coercion.rs"
 
-[[bin]]
-name = "zero_sized_never"
-path = "src/bin/size/zero_sized_never.rs"
+## switch rust to nightly version to run this file  
+# [[bin]]
+# name = "zero_sized_never"
+# path = "src/bin/size/zero_sized_never.rs"
 
 [[bin]]
 name = "zero_sized_unit_type"
