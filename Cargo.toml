@@ -16,9 +16,10 @@ harness = false                                 # disable the default benchmarki
 array_tool = "1.0.3"
 negative-impl = "0.1.6"
 rand = "0.8.5"
-regex = "1.11.0"
-tokio = {version = "1.40.0", features = ["full"]}
+regex = "1.11.1"
+tokio = {version = "1.41.0", features = ["full"]}
 ureq = "2.10.1"
+procedural_macro ={ path = "procedural_macro" }
 
 [[bin]]
 name = "var"
