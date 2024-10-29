@@ -94,91 +94,48 @@ impl TravelType2 {
 /////////////////////////////////////////////////////////////////////////
 /*
     Use Case 2: represent different design choices for modeling a Person
-        with potentially different types of addresses. While they both serve the purpose
-        of associating a person with an address, they are not directly interchangeable
-        because they represent different conceptual models. Here’s how they compare and differ:
-
-    struct HomeAddress {
-        street: String,
-        city: String,
-        state: String,
-        zip_code: String,
-    }
-
-    struct WorkAddress {
-        company_name: String,
-        street: String,
-        city: String,
-        state: String,
-        zip_code: String,
-    }
-
-    struct Person {
-        name: String,
-        home_address: Option<HomeAddress>,
-        work_address: Option<WorkAddress>,
-    }
-
-    enum Address {
-        Home(HomeAddress),
-        Work(WorkAddress),
-    }
-
-    struct PersonEnum {
-        name: String,
-        address: Address,
-    }
-
-    Comparison of the Two Approaches
-    1. Conceptual Model:
-        - Option-based Structs: This model assumes that a person can have both a home address
-            and a work address, or either one, or none. Each type of address is optional (Option<HomeAddress> and Option<WorkAddress>).
-        - Enum-based Struct: This model assumes that a person can have only one type of address
-            at a time: either a home address or a work address, but not both simultaneously. The Address enum captures this choice.
-
-    2.Data Representation:
-        - Option-based Structs: You can represent multiple addresses independently.
-            For instance, Person might have both a home and a work address, or just one of them.
-        - Enum-based Struct: The Person struct can hold only one Address at a time,
-            ensuring mutual exclusivity between the address types.
-
-    3. Data Usage:
-        - Option-based Structs: Accessing and checking whether a Person has a home or work address involves checking each Option individually.
-
-        if let Some(home_address) = &person.home_address {
-            println!("Home Address: {}", home_address.street);
-        }
-        if let Some(work_address) = &person.work_address {
-            println!("Work Address: {}", work_address.company_name);
-        }
-
-        - Enum-based Struct: Accessing the address requires pattern matching to determine which variant (home or work) is being used.
-
-    4. Flexibility:
-        - Option-based Structs: More flexible if you need to allow multiple addresses or need to potentially
-            add more types of addresses in the future. It also supports scenarios where a person might not have any address.
-        - Enum-based Struct: Less flexible in terms of adding multiple address types but enforces a stricter model
-            where only one type of address can be associated with a person.
-
-    5. Memory Usage:
-        - Option-based Structs: This approach may use more memory because you have two Option fields,
-            which each carry overhead for indicating presence or absence.
-        - Enum-based Struct: Potentially more memory-efficient as it only holds one address type
-            at a time and carries a small overhead for the enum tag.
-
-    Replacing One with the Each other
-        - Replacing Option-based Structs with Enum: You would lose the ability to store multiple addresses
-            for a person simultaneously. The model becomes simpler in terms of ensuring mutual exclusivity
-            but might not fit scenarios where multiple addresses are valid.
-        - Replacing Enum with Option-based Structs: You gain the ability to store multiple addresses
-            but introduce more complexity in handling the possibility of either or both addresses being None.
-
-    Conclusion
-        These two designs are not directly interchangeable without altering the conceptual model of your data.
-        If your application requires a person to have multiple addresses, or potentially none, the Option-based approach is better.
-        If a person should have only one address type at a time, the enum-based approach is more appropriate.
-        Your choice should depend on the specific requirements of your application.
+    with potentially different types of addresses. While they both serve the purpose
+    of associating a person with an address, they are not directly interchangeable
+    because they represent different conceptual models.
 */
+#[derive(Debug)]
+struct HomeAddress {
+    street: String,
+    city: String,
+    state: String,
+    zip_code: String,
+}
+
+#[derive(Debug)]
+struct WorkAddress {
+    company_name: String,
+    street: String,
+    city: String,
+    state: String,
+    zip_code: String,
+}
+
+// Option-based Structs: person can have both a home or work address or none
+// More flexible and memory used
+#[derive(Debug)]
+struct Person {
+    name: String,
+    home_address: Option<HomeAddress>,
+    work_address: Option<WorkAddress>,
+}
+
+// Enum-based Struct: person can have only one type of address either home or work address
+#[derive(Debug)]
+enum Address {
+    Home(HomeAddress),
+    Work(WorkAddress),
+}
+
+#[derive(Debug)]
+struct PersonEnum {
+    name: String,
+    address: Address,
+}
 
 fn main() {
     let mut day = "Saturday".to_string();
@@ -215,4 +172,41 @@ fn main() {
         "Allowance of participant (improved version): {}",
         travel.travel_allowance_improved()
     );
+
+    // Use Case 2: represent different design choices for modeling a Person
+    let person = Person {
+        name: "John".to_string(),
+        home_address: Some(HomeAddress {
+            street: "123 Main St".to_string(),
+            city: "Anytown".to_string(),
+            state: "CA".to_string(),
+            zip_code: "12345".to_string(),
+        }),
+        work_address: None,
+    };
+    if let Some(home_address) = &person.home_address {
+        println!("Home Address: {}", home_address.street);
+    }
+    if let Some(work_address) = &person.work_address {
+        println!("Work Address: {}", work_address.company_name);
+    }
+    println!("Person: {:?}", person);
+
+    let person_enum = PersonEnum {
+        name: "John".to_string(),
+        // address: Address::Home(HomeAddress {
+        //     street: "123 Main St".to_string(),
+        //     city: "Anytown".to_string(),
+        //     state: "CA".to_string(),
+        //     zip_code: "12345".to_string(),
+        // }),
+        address: Address::Work(WorkAddress {
+            company_name: "Acme Corp".to_string(),
+            street: "123 Main St".to_string(),
+            city: "Anytown".to_string(),
+            state: "CA".to_string(),
+            zip_code: "12345".to_string(),
+        }),
+    };
+    println!("PersonEnum: {:?}", person_enum);
 }
