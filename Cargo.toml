@@ -177,6 +177,11 @@ path = "src/bin/functional/combinators.rs"
 name = "iterating_options"
 path = "src/bin/functional/iterating_options.rs"
 
+## switch rust to nightly version to run this file  
+# [[bin]]
+# name = "async_closures"
+# path = "src/bin/functional/async_closures.rs"
+
 
 #-----------------------------------------------------------------------------------------------------------#
 
