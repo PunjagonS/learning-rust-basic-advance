@@ -20,6 +20,7 @@ regex = "1.11.1"
 tokio = {version = "1.41.0", features = ["full"]}
 ureq = "2.10.1"
 procedural_macro = { path = "procedural_macro" }
+async-trait = "0.1.83"
 
 [[bin]]
 name = "var"
@@ -140,6 +141,10 @@ path = "src/bin/abstraction/derived_marker_traits.rs"
 [[bin]]
 name = "associated_types"
 path = "src/bin/abstraction/associated_types.rs"
+
+[[bin]]
+name = "async_traits"
+path = "src/bin/abstraction/async_traits.rs"
 
 
 #-----------------------------------------------------------------------------------------------------------#
