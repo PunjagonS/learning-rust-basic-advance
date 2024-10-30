@@ -3,16 +3,20 @@
 // --------------------------------------------
 
 /*
-    Before the 2024 update, we had to use an `associated type` to specify
-    the type of Future would return. This required using `Pin<Box<dyn Future>>`
-    to handle the Future inside the async block, making the code
-    more complex than using `async fn` directly within traits.
+    Before Rust 1.75 (2024), using async functions in traits required
+    a workaround since async traits were not directly supported.
+    We had to define an associated type specifying the Future type
+    and use `Pin<Box<dyn Future>>` to wrap the Future in a way that
+    guarantees it would not be moved. This approach added complexity
+    to the code.
+
+    With Rust 1.75 and the introduction of native async trait support,
+    we can now define async functions in traits directly without
+    requiring `async_trait` or any additional associated types.
+    This makes the code cleaner and more straightforward.
 */
 
 use std::future::Future;
-
-// New update
-use async_trait::async_trait;
 
 struct Authenticator;
 
@@ -23,7 +27,6 @@ trait Authentication {
 }
 
 // New update
-#[async_trait]
 trait AuthenticationAsync {
     async fn authenticate(&self, username: &str, password: &str) -> bool;
 }
@@ -46,7 +49,6 @@ impl Authentication for Authenticator {
 }
 
 // New update
-#[async_trait]
 impl AuthenticationAsync for Authenticator {
     async fn authenticate(&self, username: &str, password: &str) -> bool {
         println!("Authenticating user '{}' with database...", username);
@@ -76,6 +78,7 @@ async fn authen_async<A: AuthenticationAsync>(authenticator: &A, username: &str,
     } else {
         println!("Authentication failed for user '{}'", username);
     }
+    println!()
 }
 
 #[tokio::main]
