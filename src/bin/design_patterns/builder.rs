@@ -101,12 +101,12 @@ impl CustomerBuilder {
 
     fn build(&mut self) -> Customer {
         Customer {
-            name: self.name.clone(),
-            username: self.username.clone().unwrap_or_default(),
-            membership: self.membership.clone().unwrap_or_default(),
-            gender: self.gender.unwrap_or_default(),
-            country: self.country.clone().unwrap_or_default(),
-            age: self.age.unwrap_or_default(),
+            name: std::mem::take(&mut self.name),
+            username: self.username.take().unwrap_or_default(),
+            membership: self.membership.take().unwrap_or_default(),
+            gender: self.gender.take().unwrap_or_default(),
+            country: self.country.take().unwrap_or_default(),
+            age: self.age.take().unwrap_or_default(),
         }
     }
 }
@@ -131,4 +131,8 @@ fn main() {
         .username("micheal2000".to_string())
         .membership(MembershipType::Loyal)
         .build();
+
+    println!("{:?}", new_user);
+    println!("{:?}", user_with_login);
+    println!("{:?}", user_with_membership);
 }
