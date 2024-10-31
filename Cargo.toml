@@ -254,6 +254,10 @@ path = "src/bin/design_patterns/builder.rs"
 name = "simplify_struct"
 path = "src/bin/design_patterns/simplify_struct.rs"
 
+[[bin]]
+name = "composition"
+path = "src/bin/design_patterns/composition.rs"
+
 
 #-----------------------------------------------------------------------------------------------------------#
 
