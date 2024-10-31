@@ -52,14 +52,14 @@ impl Customer {
 
 #[derive(Debug, Clone)]
 enum MembershipType {
-    new,
-    casual,
-    loyal,
+    New,
+    Casual,
+    Loyal,
 }
 
 impl Default for MembershipType {
     fn default() -> Self {
-        MembershipType::new
+        MembershipType::New
     }
 }
 
@@ -73,7 +73,7 @@ struct CustomerBuilder {
     age: Option<u8>,
 }
 
-impl  CustomerBuilder {
+impl CustomerBuilder {
     fn username(&mut self, username: String) -> &mut Self {
         self.username = Some(username);
         self
@@ -104,7 +104,7 @@ impl  CustomerBuilder {
             name: self.name.clone(),
             username: self.username.clone().unwrap_or_default(),
             membership: self.membership.clone().unwrap_or_default(),
-            gender: self.gender.clone().unwrap_or_default(),
+            gender: self.gender.unwrap_or_default(),
             country: self.country.clone().unwrap_or_default(),
             age: self.age.unwrap_or_default(),
         }
@@ -113,21 +113,22 @@ impl  CustomerBuilder {
 
 fn main() {
     // let new_usre = Customer::new("Nouman".to_string());
-    // let user_with_login = Customer::new_2("Joseph".to_string(), 
+    // let user_with_login = Customer::new_2("Joseph".to_string(),
     //     "joe1234".to_string());
     // let user_with_membership = Customer::new_3(
-    //     "Micheal".to_string(), 
-    //     "micheal2000".to_string(), 
+    //     "Micheal".to_string(),
+    //     "micheal2000".to_string(),
     //     MembershipType::loyal,
     // );
 
     // Using Builder
     let new_user = Customer::new("Nouman".to_string()).build();
     let user_with_login = Customer::new("Joseph".to_string())
-        .username("joe123".to_string()).build();
+        .username("joe123".to_string())
+        .build();
 
     let user_with_membership = Customer::new("Micheal".to_string())
         .username("micheal2000".to_string())
-        .membership(MembershipType::loyal)
+        .membership(MembershipType::Loyal)
         .build();
 }
