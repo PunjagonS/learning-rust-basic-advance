@@ -2,11 +2,16 @@
 //          Dereferencing
 // --------------------------------------------
 
+/*
+    Dereferencing is the process of accessing the value
+    that a reference points to. It is done using the `*` operator.
+*/
+
 fn main() {
     let mut some_data = 42;
     let ref_1 = &mut some_data;
     let deref_copy = *ref_1; // Copy the value of ref_1
-    *ref_1 = 24; // Change the value of some_data
+    *ref_1 = 24; // Change the value of original `mut some_data`
 
     println!("some_data: {}", some_data);
 
