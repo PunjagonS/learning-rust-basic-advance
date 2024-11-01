@@ -55,9 +55,13 @@ fn main() {
     /*
         Example 2 - Using collect on into_iter to get first error from server
         capturing OK variant by the Result.
+
+        Real world use case: is to check that all our programs or services can
+        run without any errors. if even one of them fails, we maybe take some
+        action with it for example : rollback.
     */
     let responses = vec![Ok(100), Err("Client Error"), Ok(300), Err("Server Error")];
-    let result = responses.into_iter().collect::<Result<Vec<_>, &str>>();
+    let result = responses.into_iter().collect::<Result<Vec<i32>, &str>>();
     println!("{:?}", result);
 
     // Example 3 - Using HashMap to store persons by name
