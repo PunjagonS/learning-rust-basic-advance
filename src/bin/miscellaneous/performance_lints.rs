@@ -32,7 +32,6 @@ fn main() {
     // Example - Boxing default with shorter syntax.
     let y: Box<i32> = Box::new(Default::default());
     let y: Box<i32> = Box::default(); // Same as above but shorter and more efficient from performance perspective.
-                                      ///////////////////////////////////////////////////////////////////////////////////////////////
 
     // Example - Compare string and string slice.
     let x = "Nouman".to_string();
