@@ -36,6 +36,11 @@ impl Authentication for Authenticator {
 
     fn authenticate(&self, username: &str, password: &str) -> Self::AuthFuture {
         // Use Box to wrap the Future and use async block to create the Future
+        /*
+            Convert username and password to String let ownership of data can move
+            within the block for guarantee lifetime of data will be always valid
+            util the block is executed.
+        */
         let username = username.to_string();
         let password = password.to_string();
 
