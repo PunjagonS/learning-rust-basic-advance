@@ -478,3 +478,7 @@ path = "src/bin/miscellaneous/todo_macros.rs"
 [[bin]]
 name = "performance_lints"
 path = "src/bin/miscellaneous/performance_lints.rs"
+
+[[bin]]
+name = "must_not"
+path = "src/bin/miscellaneous/must_not.rs"
