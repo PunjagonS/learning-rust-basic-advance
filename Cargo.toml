@@ -6,7 +6,9 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dev-dependencies]
+anyhow = "1.0.93"
 criterion = "0.5.1"
+httpc-test = "0.1.10"
 
 [[bench]]
 name = "sorting_benchmark"
@@ -20,6 +22,7 @@ regex = "1.11.1"
 tokio = {version = "1.41.0", features = ["full"]}
 ureq = "2.10.1"
 procedural_macro = { path = "procedural_macro" }
+axum = "0.7.7"
 
 [[bin]]
 name = "var"
@@ -482,3 +485,11 @@ path = "src/bin/miscellaneous/performance_lints.rs"
 [[bin]]
 name = "must_not"
 path = "src/bin/miscellaneous/must_not.rs"
+
+
+#-----------------------------------------------------------------------------------------------------------#
+
+
+[[bin]]
+name = "hello_router"
+path = "src/bin/axum/hello_router.rs"

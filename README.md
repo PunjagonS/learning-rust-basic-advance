@@ -142,7 +142,15 @@ To expand macros for a specific binary target, you can use the `cargo expand` co
 
    Description: Runs a specific integration test file named `order_test.rs`.
 
-7. **Command to Run Benchmark Test:**
+7. **Command to Run Integration Test with Output:**
+
+   ```bash
+   cargo test --test quick_dev -- --nocapture
+   ```
+
+   Description: Runs a specific integration test file named `quick_dev.rs` and displays the output during the test execution.
+
+8. **Command to Run Benchmark Test:**
 
    ```bash
    cargo bench
