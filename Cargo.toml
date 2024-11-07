@@ -23,6 +23,8 @@ tokio = {version = "1.41.0", features = ["full"]}
 ureq = "2.10.1"
 procedural_macro = { path = "procedural_macro" }
 axum = "0.7.7"
+serde = { version = "1.0.214", features = ["derive"] }
+serde_json = "1.0.132"
 
 [[bin]]
 name = "var"
