@@ -1,3 +1,8 @@
+/*
+    Tower มี middleware แบบจัดการ load, retry, timeout เหมาะกับ HTTP server
+    Hyper เป็น HTTP library มี middleware พวก logging, CORS, compression
+*/
+
 #![allow(unused)] // For beginning only.
 
 use std::net::SocketAddr;
@@ -5,15 +10,18 @@ use std::net::SocketAddr;
 use axum::{
     extract::{Path, Query},
     response::{Html, IntoResponse},
-    routing::get,
+    routing::{get, get_service},
     Router,
 };
 use serde::Deserialize;
 use tokio::net::TcpListener;
+use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() {
-    let routes_all = Router::new().merge(routes_hello()); // Compose multiple routes together
+    let routes_all = Router::new()
+        .merge(routes_hello()) // Compose multiple routes together
+        .fallback_service(routes_static());
 
     // region: --- Start Server
     let listener = TcpListener::bind("127.0.0.1:8080").await.unwrap();
@@ -21,6 +29,10 @@ async fn main() {
 
     axum::serve(listener, routes_all).await.unwrap();
     // endregion: --- Start Server
+}
+
+fn routes_static() -> Router {
+    Router::new().nest_service("/", get_service(ServeDir::new("./")))
 }
 
 // region: --- Routes Hello
