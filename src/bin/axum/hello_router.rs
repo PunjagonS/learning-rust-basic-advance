@@ -13,23 +13,23 @@ use tokio::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
-    let routes_hello = Router::new()
-        .route(
-            "/hello",
-            // get(|| async { Html("Hello, <strong>Axum!</strong>") }),
-            get(handler_hello),
-        )
-        .route("/hello2/:name", get(handler_hello2));
+    let routes_all = Router::new().merge(routes_hello()); // Compose multiple routes together
 
     // region: --- Start Server
     let listener = TcpListener::bind("127.0.0.1:8080").await.unwrap();
     println!("--> LISTENING on 127.0.0.1:8080\n");
 
-    axum::serve(listener, routes_hello).await.unwrap();
+    axum::serve(listener, routes_all).await.unwrap();
     // endregion: --- Start Server
 }
 
-// region: --- Handler Hello
+// region: --- Routes Hello
+fn routes_hello() -> Router {
+    Router::new()
+        .route("/hello", get(handler_hello))
+        .route("/hello2/:name", get(handler_hello2))
+}
+
 #[derive(Debug, Deserialize)]
 struct HelloParams {
     name: Option<String>,
@@ -49,4 +49,4 @@ async fn handler_hello2(Path(name): Path<String>) -> impl IntoResponse {
 
     Html(format!("Hello, <strong>{name}</strong>"))
 }
-// endregion: --- Handler Hello
+// endregion: --- Routes Hello
