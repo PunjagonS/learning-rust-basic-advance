@@ -6,6 +6,7 @@
 #![allow(unused)] // For beginning only.
 
 mod error;
+mod model;
 mod web;
 
 pub use error::{Error, Result};
