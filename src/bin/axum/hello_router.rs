@@ -5,22 +5,29 @@
 
 #![allow(unused)] // For beginning only.
 
-use std::net::SocketAddr;
+mod error;
+mod web;
+
+pub use error::{Error, Result};
 
 use axum::{
     extract::{Path, Query},
-    response::{Html, IntoResponse},
+    middleware,
+    response::{Html, IntoResponse, Response},
     routing::{get, get_service},
     Router,
 };
 use serde::Deserialize;
 use tokio::net::TcpListener;
 use tower_http::services::ServeDir;
+use web::routes_login;
 
 #[tokio::main]
 async fn main() {
     let routes_all = Router::new()
         .merge(routes_hello()) // Compose multiple routes together
+        .merge(routes_login::routes())
+        .layer(middleware::map_response(main_response_mapper)) // Add middleware
         .fallback_service(routes_static());
 
     // region: --- Start Server
@@ -29,6 +36,14 @@ async fn main() {
 
     axum::serve(listener, routes_all).await.unwrap();
     // endregion: --- Start Server
+}
+
+// middleware
+async fn main_response_mapper(res: Response) -> Response {
+    println!("->> {:<12} - main_response_mapper", "RES_MAPPER");
+
+    println!();
+    res
 }
 
 fn routes_static() -> Router {
@@ -49,7 +64,7 @@ struct HelloParams {
 
 // e.g., `/hello?name=Jav@69`
 async fn handler_hello(Query(params): Query<HelloParams>) -> impl IntoResponse {
-    println!("--> {:<12} - handler_hello - {params:?}", "HANDLER");
+    println!("->> {:<12} - handler_hello - {params:?}", "HANDLER");
 
     let name = params.name.as_deref().unwrap_or("World");
     Html(format!("Hello, <strong>{name}</strong>"))
@@ -57,7 +72,7 @@ async fn handler_hello(Query(params): Query<HelloParams>) -> impl IntoResponse {
 
 // e.g., `/hello2/Mike`
 async fn handler_hello2(Path(name): Path<String>) -> impl IntoResponse {
-    println!("--> {:<12} - handler_hello2 - {name:?}", "HANDLER");
+    println!("->> {:<12} - handler_hello2 - {name:?}", "HANDLER");
 
     Html(format!("Hello, <strong>{name}</strong>"))
 }
