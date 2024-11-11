@@ -1,5 +1,5 @@
 /*
-    Tower มี middleware แบบจัดการ load, retry, timeout เหมาะกับ HTTP server
+    Tower มี middleware แบบจัดการ load, retry, timeout, cookies เหมาะกับ HTTP server
     Hyper เป็น HTTP library มี middleware พวก logging, CORS, compression
 */
 
@@ -19,6 +19,7 @@ use axum::{
 };
 use serde::Deserialize;
 use tokio::net::TcpListener;
+use tower_cookies::CookieManagerLayer;
 use tower_http::services::ServeDir;
 use web::routes_login;
 
@@ -27,7 +28,14 @@ async fn main() {
     let routes_all = Router::new()
         .merge(routes_hello()) // Compose multiple routes together
         .merge(routes_login::routes())
-        .layer(middleware::map_response(main_response_mapper)) // Add middleware
+        /*
+            Middleware Layer
+            working from bottom to top meaning that other layers
+            will have cookie data because cookie layer will be
+            executed first from bottom of other layers.
+        */
+        .layer(middleware::map_response(main_response_mapper))
+        .layer(CookieManagerLayer::new())
         .fallback_service(routes_static());
 
     // region: --- Start Server
