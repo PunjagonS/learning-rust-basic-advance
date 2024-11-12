@@ -18,17 +18,22 @@ use axum::{
     routing::{get, get_service},
     Router,
 };
+use model::ModelController;
 use serde::Deserialize;
 use tokio::net::TcpListener;
 use tower_cookies::CookieManagerLayer;
 use tower_http::services::ServeDir;
-use web::routes_login;
+use web::{routes_login, routes_tickets};
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<()> {
+    // Initialize Model Controller.
+    let mc = ModelController::new().await?;
+
     let routes_all = Router::new()
         .merge(routes_hello()) // Compose multiple routes together
         .merge(routes_login::routes())
+        .nest("/api", routes_tickets::routes(mc))
         /*
             Middleware Layer
             working from bottom to top meaning that other layers
@@ -45,6 +50,8 @@ async fn main() {
 
     axum::serve(listener, routes_all).await.unwrap();
     // endregion: --- Start Server
+
+    Ok(())
 }
 
 // middleware

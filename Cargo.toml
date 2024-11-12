@@ -495,5 +495,5 @@ path = "src/bin/miscellaneous/must_not.rs"
 
 
 [[bin]]
-name = "hello_router"
-path = "src/bin/axum/hello_router.rs"
+name = "hello_axum"
+path = "src/bin/axum/hello_axum.rs"

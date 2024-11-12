@@ -25,5 +25,19 @@ async fn quick_dev() -> Result<()> {
     req_login.await?.print().await?;
 
     // hc.do_get("/hello2/Jiw2").await?.print().await?; // Test cookie is stored on client
+
+    let req_create_ticket = hc.do_post(
+        "/api/tickets",
+        json!({
+            "title": "Ticket AAA",
+        }),
+    );
+    req_create_ticket.await?.print().await?;
+
+    hc.do_get("/api/tickets").await?.print().await?;
+
+    // hc.do_delete("/api/tickets/0").await?.print().await?;
+    // hc.do_get("/api/tickets").await?.print().await?;
+
     Ok(())
 }
