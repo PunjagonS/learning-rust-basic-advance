@@ -5,6 +5,7 @@
 
 #![allow(unused)] // For beginning only.
 
+mod ctx;
 mod error;
 mod model;
 mod web;
