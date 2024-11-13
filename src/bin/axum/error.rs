@@ -9,7 +9,10 @@ pub type Result<T> = std::result::Result<T, Error>;
 pub enum Error {
     LoginFail,
 
-    // Model errors.
+    // -- Auth errors.
+    AuthFailNoAuthTokenCookie,
+
+    // -- Model errors.
     TicketDeleteFailIdNotFound { id: u64 },
 }
 
