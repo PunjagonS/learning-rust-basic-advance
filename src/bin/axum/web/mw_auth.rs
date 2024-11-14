@@ -12,21 +12,19 @@ use crate::ctx::Ctx;
 use crate::web::AUTH_TOKEN;
 use crate::{Error, Result};
 
-pub async fn mw_require_auth(cookies: Cookies, req: Request<Body>, next: Next) -> Result<Response> {
+pub async fn mw_require_auth(
+    ctx: Result<Ctx>, // Custom Extractor
+    req: Request<Body>,
+    next: Next,
+) -> Result<Response> {
     println!("->> {:<12} - mw_require_auth", "MIDDLEWARE");
-    let auth_token = cookies.get(AUTH_TOKEN).map(|c| c.value().to_string()); // Get auth-token cookie.
 
-    // Parse token.
-    let (user_id, exp, sign) = auth_token
-        .ok_or(Error::AuthFailNoAuthTokenCookie) // If no auth-token cookie, return error.
-        .and_then(parse_token)?; // Parse token after checking if it exists.
-
-    // TODO: Token components validation.
+    ctx?;
 
     Ok(next.run(req).await)
 }
 
-// Create a custom extractor for Ctx.
+// Create a custom extractor for Ctx (Boilerplate Code).
 // region: --- Ctx Extractor
 #[async_trait]
 impl<S: Send + Sync> FromRequestParts<S> for Ctx {
