@@ -14,10 +14,21 @@ use crate::{Error, Result};
 
 pub async fn mw_require_auth(
     ctx: Result<Ctx>, // Custom Extractor
+    /*
+        ctx: Ctx, like this If error happen in the ctx extractor
+        `mw_require_auth` will not be executed.
+    */
+    // ctx: Ctx,
+    /*
+        ctx: Option<Ctx>, like this will ignore error happen in
+        the ctx extractor and `mw_require_auth` will be executed
+        like no error ever happen. Becuase ctx will be just None.
+    */
+    // ctx: Option<Ctx>,
     req: Request<Body>,
     next: Next,
 ) -> Result<Response> {
-    println!("->> {:<12} - mw_require_auth", "MIDDLEWARE");
+    println!("->> {:<12} - mw_require_auth - {ctx:?}", "MIDDLEWARE");
 
     ctx?;
 
