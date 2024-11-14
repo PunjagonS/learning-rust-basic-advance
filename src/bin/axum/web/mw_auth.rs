@@ -6,7 +6,7 @@ use axum::middleware::Next;
 use axum::response::Response;
 use axum::{async_trait, RequestPartsExt};
 use lazy_regex::regex_captures;
-use tower_cookies::Cookies;
+use tower_cookies::{Cookie, Cookies};
 
 use crate::ctx::Ctx;
 use crate::model::ModelController;
@@ -36,6 +36,39 @@ pub async fn mw_require_auth(
     Ok(next.run(req).await)
 }
 
+pub async fn mw_ctx_resolver(
+    _mc: State<ModelController>,
+    cookies: Cookies,
+    mut req: Request<Body>,
+    next: Next,
+) -> Result<Response> {
+    println!("->> {:<12} - mw_ctx_resolver", "MIDDLEWARE");
+
+    let auth_token = cookies.get(AUTH_TOKEN).map(|c| c.value().to_string());
+
+    // Compute Result<Ctx>.
+    let result_ctx = match auth_token
+        .ok_or(Error::AuthFailNoAuthTokenCookie) // If no auth-token cookie, return error.
+        .and_then(parse_token) // Parse token after checking if it exists.
+    {
+        Ok((user_id, _exp, _sign)) => {
+            // TODO: Token components validation.
+            Ok(Ctx::new(user_id))
+        }
+        Err(e) => Err(e),
+    };
+
+    // Remove the cookie if something went wrong other than NoAuthTokenCookie.
+    if result_ctx.is_err() && !matches!(result_ctx, Err(Error::AuthFailNoAuthTokenCookie)) {
+        cookies.remove(Cookie::from(AUTH_TOKEN));
+    }
+
+    // Store the ctx_result in the request extension(a data store by type).
+    req.extensions_mut().insert(result_ctx); // Replaced if already exists.
+
+    Ok(next.run(req).await)
+}
+
 // Create a custom extractor for Ctx (Boilerplate Code).
 // region: --- Ctx Extractor
 #[async_trait]
@@ -45,19 +78,11 @@ impl<S: Send + Sync> FromRequestParts<S> for Ctx {
     async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self> {
         println!("->> {:<12} - Ctx", "EXTRACTOR");
 
-        // User the cookies extractor.
-        let cookies = parts.extract::<Cookies>().await.unwrap();
-
-        let auth_token = cookies.get(AUTH_TOKEN).map(|c| c.value().to_string()); // Get auth-token cookie.
-
-        // Parse token.
-        let (user_id, exp, sign) = auth_token
-            .ok_or(Error::AuthFailNoAuthTokenCookie) // If no auth-token cookie, return error.
-            .and_then(parse_token)?; // Parse token after checking if it exists.
-
-        // TODO: Token components validation.
-
-        Ok(Ctx::new(user_id))
+        parts
+            .extensions
+            .get::<Result<Ctx>>()
+            .ok_or(Error::AuthFailCtxNotInRequestExt)?
+            .clone()
     }
 }
 // endregion: --- Ctx Extractor

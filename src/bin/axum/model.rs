@@ -18,7 +18,6 @@ pub struct TicketForCreate {
     pub title: String,
 }
 // endregion: --- Ticket Types
-
 // region:    --- Model Controller
 #[derive(Clone)]
 pub struct ModelController {
