@@ -1,7 +1,7 @@
 //! Simplistic Model Layer
 //! (with mock-store layaer)
 
-use crate::{Error, Result};
+use crate::{ctx::Ctx, Error, Result};
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 
@@ -9,6 +9,7 @@ use std::sync::{Arc, Mutex};
 #[derive(Clone, Debug, Serialize)]
 pub struct Ticket {
     pub id: u64,
+    pub cid: u64, // creator_user_id
     pub title: String,
 }
 
@@ -42,12 +43,13 @@ impl ModelController {
 
 // CRUD Implementation
 impl ModelController {
-    pub async fn create_ticket(&self, ticket_fc: TicketForCreate) -> Result<Ticket> {
+    pub async fn create_ticket(&self, ctx: Ctx, ticket_fc: TicketForCreate) -> Result<Ticket> {
         let mut store = self.tickets_store.lock().unwrap();
 
         let id = store.len() as u64;
         let ticket = Ticket {
             id,
+            cid: ctx.user_id(),
             title: ticket_fc.title,
         };
         store.push(Some(ticket.clone()));
@@ -55,7 +57,7 @@ impl ModelController {
         Ok(ticket)
     }
 
-    pub async fn list_tickets(&self) -> Result<Vec<Ticket>> {
+    pub async fn list_tickets(&self, _ctx: Ctx) -> Result<Vec<Ticket>> {
         let store = self.tickets_store.lock().unwrap();
 
         let tickets = store.iter().filter_map(|t| t.clone()).collect();
@@ -63,7 +65,7 @@ impl ModelController {
         Ok(tickets)
     }
 
-    pub async fn delete_ticket(&self, id: u64) -> Result<Ticket> {
+    pub async fn delete_ticket(&self, _ctx: Ctx, id: u64) -> Result<Ticket> {
         let mut store = self.tickets_store.lock().unwrap();
 
         /*
