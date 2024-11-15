@@ -17,13 +17,15 @@ use axum::{
     middleware,
     response::{Html, IntoResponse, Response},
     routing::{get, get_service},
-    Router,
+    Json, Router,
 };
 use model::ModelController;
 use serde::Deserialize;
+use serde_json::json;
 use tokio::net::TcpListener;
 use tower_cookies::CookieManagerLayer;
 use tower_http::services::ServeDir;
+use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -35,18 +37,18 @@ async fn main() -> Result<()> {
         .route_layer(middleware::from_fn(web::mw_auth::mw_require_auth));
 
     let routes_all = Router::new()
-        // .merge(Router::new().route("/hello", get(handler_hello))) // Hello
-        .merge(routes_hello()) // Won't be impacted by middleware `mw_require_auth`
-        .merge(web::routes_login::routes()) // Won't be impacted by middleware `mw_require_auth`
-        .nest("/api", routes_apis)
         /*
             Middleware Layer
             working from bottom to top meaning that other layers
             will have cookie data because cookie layer will be
             executed first from bottom of other layers.
         */
-        .layer(middleware::map_response(main_response_mapper)) // First middleware
-        // Middleware for cookie extractor provided by cookie manager layer below
+        // .merge(Router::new().route("/hello", get(handler_hello))) // Hello
+        .merge(routes_hello()) // Won't be impacted by middleware `mw_require_auth`
+        .merge(web::routes_login::routes()) // Won't be impacted by middleware `mw_require_auth`.
+        .nest("/api", routes_apis)
+        .layer(middleware::map_response(main_response_mapper)) // Map response before return to client.
+        // Middleware for cookie extractor, where cookie provided by cookie manager layer below.
         .layer(middleware::from_fn_with_state(
             mc.clone(),
             web::mw_auth::mw_ctx_resolver,
@@ -67,9 +69,46 @@ async fn main() -> Result<()> {
 // middleware
 async fn main_response_mapper(res: Response) -> Response {
     println!("->> {:<12} - main_response_mapper", "RES_MAPPER");
+    let uuid = Uuid::new_v4();
+
+    // -- Get the eventual response error.
+    let service_error = res.extensions().get::<Error>();
+    let client_status_error = service_error.map(|se| se.client_status_and_error());
+
+    // -- If client error, build the new response.
+    let error_response = client_status_error
+        .as_ref() // To reuse it later.
+        .map(|(status_code, client_error)| {
+            let client_error_body = json!({
+                "error": {
+                    /*
+                        `client_error.as_ref()` allows to directly work
+                        with the String inside the Option. not the same
+                        with `&client_error` resulting in `&Option<String>`
+                        still need to handle the Option to get to the String.
+                    */
+                    "type": client_error.as_ref(),
+                    "req_uuid": uuid.to_string(),
+                }
+            });
+
+            println!("  ->> client_error_body: {client_error_body}");
+
+            // Build the new response from the client error.
+            /*
+                Since StatusCode derive Copy trait, dereferencing it
+                means actually copy it and then after it can take
+                the ownership but the status code is still available
+                for later.
+            */
+            (*status_code, Json(client_error_body)).into_response()
+        });
+
+    // -- TODO: Build and log the server log line.
+    println!("  ->> server log line - {uuid} - Error: {service_error:?}");
 
     println!();
-    res
+    error_response.unwrap_or(res)
 }
 
 fn routes_static() -> Router {

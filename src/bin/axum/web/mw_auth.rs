@@ -37,7 +37,7 @@ pub async fn mw_require_auth(
 }
 
 pub async fn mw_ctx_resolver(
-    _mc: State<ModelController>,
+    _mc: State<ModelController>, // Unused
     cookies: Cookies,
     mut req: Request<Body>,
     next: Next,
@@ -63,7 +63,7 @@ pub async fn mw_ctx_resolver(
         cookies.remove(Cookie::from(AUTH_TOKEN));
     }
 
-    // Store the ctx_result in the request extension(a data store by type).
+    // Store the ctx_result in the request extension(a data store by types).
     req.extensions_mut().insert(result_ctx); // Replaced if already exists.
 
     Ok(next.run(req).await)
