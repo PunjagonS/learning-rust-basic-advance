@@ -22,7 +22,7 @@ async fn quick_dev() -> Result<()> {
             "password": "welcome",
         }),
     );
-    req_login.await?.print().await?;
+    // req_login.await?.print().await?;
 
     // hc.do_get("/hello2/Jiw2").await?.print().await?; // Test cookie is stored on client
 

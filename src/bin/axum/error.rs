@@ -2,11 +2,13 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
 };
+use serde::Serialize;
 use strum_macros::AsRefStr;
 
 pub type Result<T> = std::result::Result<T, Error>;
 
-#[derive(Debug, Clone, AsRefStr)]
+#[derive(Debug, Clone, Serialize, AsRefStr)]
+#[serde(tag = "type", content = "data")] // example: {"type": "TicketDeleteFailIdNotFound", "data": {"id": 123}}
 pub enum Error {
     LoginFail,
 
