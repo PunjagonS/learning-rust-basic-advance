@@ -2,11 +2,22 @@
 //            Simplifying Structs
 // --------------------------------------------
 
+/*
+    Simplifying structs using "decomposition" pattern.
+
+    "decomposition" refers to breaking down a data structure into
+    smaller, more manageable parts. This allows for easier handling
+    or usage of the data. In this context, decomposing struct A into
+    structs B and C enables borrowing of individual fields of struct
+    A independently, without needing to borrow the entire struct A as
+    mutable. This approach helps resolve issues related to mutable
+    borrowing conflicts.
+*/
+
 struct A {
     // f1: u32,
     // f2: u32,
     // f3: u32,
-
     b: B,
     c: C,
 }
@@ -50,7 +61,6 @@ fn fn2(a: &mut C) -> u32 {
 }
 
 fn fn3(a: &mut A) {
-
     /*
         Error: fn2(a) borrow `*a` as mutable more than once at a time.
 
@@ -59,7 +69,7 @@ fn fn3(a: &mut A) {
         the rust compiler assumes that the whole of the struct
         is being borrowed as MUTABLE!.
 
-        In summary, the problem in this case is that the rust 
+        In summary, the problem in this case is that the rust
         does not allow the fields to be borrowed independently
         to make sure that the struct will not be updated inside
         the function.
@@ -70,7 +80,6 @@ fn fn3(a: &mut A) {
     // let x = fn1(a);
     // let y = fn2(a);
     // println!("{x}");
-
 
     // Using decomposition.
     let x = fn1(&mut a.b);
