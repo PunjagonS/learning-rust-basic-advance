@@ -2,6 +2,23 @@
 //         Performance Lints(Clippy)
 // --------------------------------------------
 
+/*
+    If you already have Rustup installed, update to ensure you have the latest Rustup and compiler:
+    "rustup update"
+
+    Once you have rustup and the latest stable release (at least Rust 1.29) installed, run the following command:
+    "rustup component add clippy"
+
+    Now you can run Clippy by invoking the following command:
+    "cargo clippy"
+
+    Automatically applying Clippy suggestions
+    Clippy can automatically apply some lint suggestions, just like the compiler. Note that --fix implies --all-targets, so it can fix as much code as it can.
+    "cargo clippy --fix"
+
+    See more detail at https://github.com/rust-lang/rust-clippy
+*/
+
 struct A {
     // values: Box<Vec<i32>>,
     /*

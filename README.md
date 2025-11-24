@@ -170,3 +170,31 @@ To expand macros for a specific binary target, you can use the `cargo expand` co
    ```
 
    Description: Runs benchmark tests.
+
+### Performance Lints (Clippy)
+
+Clippy is a collection of lints to catch common mistakes and improve your Rust code.
+
+1. **Install Clippy:**
+
+   ```bash
+   rustup component add clippy
+   ```
+
+2. **Run Clippy:**
+
+   ```bash
+   cargo clippy
+   ```
+
+   Description: Analyzes your code and provides suggestions for improvements.
+
+3. **Automatically Apply Suggestions:**
+
+   ```bash
+   cargo clippy --fix
+   ```
+
+   Description: Automatically applies Clippy's suggested fixes. Note that `--fix` implies `--all-targets`.
+
+See more details at https://github.com/rust-lang/rust-clippy
