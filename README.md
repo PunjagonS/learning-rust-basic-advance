@@ -24,6 +24,19 @@ Learning Rust from basic to advance
 - Section 21 -> Text Processing, File and Directory Handling
 - Section 22 -> Miscellaneous Topics
 
+### Build and Run
+
+```bash
+# Build the project
+cargo build
+
+# Run a specific binary example
+cargo run --bin <binary_name>
+
+# Example: run the var binary
+cargo run --bin var
+```
+
 ### Module Tree Structure
 
 To better understand the structure of your Rust code, you can visualize the module tree using the `cargo-modules` tool. Follow these steps:
@@ -37,7 +50,7 @@ To better understand the structure of your Rust code, you can visualize the modu
 2. **Generate and view the module structure:**
 
    ```bash
-   cargo modules generate tree --lib
+   cargo-modules structure --lib
    ```
 
 ### Using Nightly Rust

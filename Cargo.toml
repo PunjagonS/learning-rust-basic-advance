@@ -1,7 +1,7 @@
 [package]
 name = "basic-advance"
-version = "0.1.0"
-edition = "2021"
+version = "0.1.1" # Version of the package
+edition = "2024" # Rust edition specifies which language features/defaults to use. Edition 2024 is the newest.
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -189,10 +189,9 @@ path = "src/bin/functional/combinators.rs"
 name = "iterating_options"
 path = "src/bin/functional/iterating_options.rs"
 
-## switch rust to nightly version to run this file  
-# [[bin]]
-# name = "async_closures"
-# path = "src/bin/functional/async_closures.rs"
+[[bin]]
+name = "async_closures"
+path = "src/bin/functional/async_closures.rs"
 
 
 #-----------------------------------------------------------------------------------------------------------#
@@ -294,7 +293,7 @@ path = "src/bin/size/sized_generics.rs"
 name = "unsized_coercion"
 path = "src/bin/size/unsized_coercion.rs"
 
-## switch rust to nightly version to run this file  
+## switch rust to nightly version to run this file
 # [[bin]]
 # name = "zero_sized_never"
 # path = "src/bin/size/zero_sized_never.rs"
